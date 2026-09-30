@@ -32,6 +32,8 @@ def head(title, desc, path, extra='', body='', og='/og.jpg'):
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{url}">
 <meta name="theme-color" content="#FFF8F0">
+<meta name="color-scheme" content="light">
+<meta name="darkreader-lock">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
