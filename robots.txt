@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mochimoose.com/sitemap.xml
