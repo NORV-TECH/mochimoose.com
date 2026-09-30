@@ -235,8 +235,8 @@ details > div { padding-bottom: 16px }
 .tile::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, var(--tint, rgba(20, 40, 80, .82)) 78%) }
 .tile .in { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 24px 26px; display: grid; gap: 12px }
 @media (min-width: 720px) { .tile .in { padding: 34px 34px 32px } }
-.tile .top { position: absolute; top: 20px; left: 20px; right: 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px }
-.tile .top img { width: 64px; height: 64px; border-radius: 17px; box-shadow: 0 8px 20px rgba(0, 0, 0, .25) }
+.tile .ttop { position: absolute; top: 20px; left: 20px; right: 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px }
+.tile .ttop img { width: 64px; height: 64px; border-radius: 17px; box-shadow: 0 8px 20px rgba(0, 0, 0, .25) }
 .tile .pill { font: 700 14px/1 var(--display); padding: 9px 13px; border-radius: 999px; background: rgba(255, 255, 255, .92); color: var(--ink); white-space: nowrap }
 .tile .pill.soon { background: var(--lilac); color: #fff; box-shadow: 0 4px 0 #7E5DD6 }
 .tile h3 { font-size: clamp(30px, 4.4vw, 44px); text-shadow: 0 3px 14px rgba(0, 0, 0, .35) }
