@@ -21,7 +21,7 @@ ICON = {
 }
 
 
-def head(title, desc, path, extra=''):
+def head(title, desc, path, extra='', body='', og='/og.jpg'):
     url = SITE + path
     return f'''<!doctype html>
 <html lang="en">
@@ -41,15 +41,15 @@ def head(title, desc, path, extra=''):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}/og.jpg">
+<meta property="og:image" content="{SITE}{og}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/assets/fonts/fredoka-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/nunito-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=1">
+<link rel="stylesheet" href="/assets/css/site.css?v=2">
 {extra}</head>
-<body>
+<body{' class="' + body + '"' if body else ''}>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 <header class="top"><div class="wrap">
   <a class="brand" href="/" aria-label="Mochi Moose, home"><img src="/assets/img/moose.svg" alt="" width="46" height="42"><span>Mochi <b>Moose</b></span></a>
@@ -59,16 +59,16 @@ def head(title, desc, path, extra=''):
 '''
 
 
-def foot():
+def foot(scripts=()):
     return f'''<footer class="foot"><div class="wrap">
   <div>
     <a class="brand" href="/" aria-label="Mochi Moose, home"><img src="/assets/img/moose.svg" alt="" width="52" height="48"><span>Mochi <b>Moose</b></span></a>
     <p data-i18n="footTag">Tiny studio, big smiles. Cozy games for the whole family.</p>
   </div>
-  <nav aria-label="Footer"><a href="/#games" data-i18n="navGames">Games</a><a href="/support" data-i18n="navSupport">Support</a><a href="/privacy" data-i18n="footPriv">Privacy</a><a href="/terms" data-i18n="footTerms">Terms</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+  <nav aria-label="Footer"><a href="/solitaire-bible-3d">Solitaire Bible 3D</a><a href="/dawn-of-civilizations">Dawn of Civilizations</a><a href="/support" data-i18n="navSupport">Support</a><a href="/privacy" data-i18n="footPriv">Privacy</a><a href="/terms" data-i18n="footTerms">Terms</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
   <div class="fine"><span>© 2026 Mochi Moose. <span data-i18n="rights">All rights reserved.</span></span><span>mochimoose.com</span></div>
 </div></footer>
-<script src="/assets/js/site.js?v=1" defer></script>
+{''.join(f'<script src="{x}" defer></script>' for x in scripts)}<script src="/assets/js/site.js?v=2" defer></script>
 </body>
 </html>
 '''
@@ -85,18 +85,6 @@ def pic(name, alt, sizes='(min-width: 900px) 360px, 78vw', cls=''):
 
 
 def index():
-    shots = [('sb-redsea', 'cap1', 'Crossing the Red Sea', 'Little people in robes walk between two walls of water on the sea floor'),
-             ('sb-noah', 'cap2', "Noah's Ark", 'Families line up in front of the big wooden ark on a grassy hill'),
-             ('sb-goliath', 'cap3', 'David and Goliath', 'Giant Goliath in bronze armor faces the armies across a stream'),
-             ('sb-jericho', 'cap4', 'The walls of Jericho', 'The people march around the walled city of Jericho with priests and soldiers'),
-             ('sb-jonah', 'cap5', 'Jonah and the big fish', 'Jonah sits inside the belly of the big blue fish'),
-             ('sb-finale', 'cap6', 'The grand finale', 'Everyone from the stories gathers together under a rainbow')]
-    shot_html = '\n'.join(f'      <li><figure>{pic(n, alt)}<figcaption data-i18n="{k}">{c}</figcaption></figure></li>' for n, k, c, alt in shots)
-    civs = [('civ-sumer', 'civ1', 'Sumer', 'civ1s', 'The first cities', 'A tall stepped tower rising over a sandy plain with builders around it'),
-            ('civ-egypt', 'civ2', 'Egypt', 'civ2s', 'Pyramids on the Nile', 'Pyramids and the Sphinx beside the Nile, with the royal court across the river'),
-            ('civ-assyria', 'civ3', 'Assyria', 'civ3s', 'Mighty Nineveh', 'The walled city of Nineveh with its towers and palace'),
-            ('civ-babylon', 'civ4', 'Babylon', 'civ4s', 'The Ishtar Gate', 'The blue Ishtar Gate and the walls of Babylon with the ziggurat behind')]
-    civ_html = '\n'.join(f'        <li><figure>{pic(n, alt, "(min-width: 900px) 250px, 45vw")}<figcaption><b data-i18n="{k}">{t}</b><span data-i18n="{ks}">{s}</span></figcaption></figure></li>' for n, k, t, ks, s, alt in civs)
     bubbles = ''.join(f'<span style="--c:{c};width:{s}px;height:{s}px;left:{x}%;top:{y}%;--d:{d}s;--dl:{dl}s;--x:{dx}px;--y:{dy}px"></span>'
                       for c, s, x, y, d, dl, dx, dy in [('#FFC2D4', 64, 4, 10, 9, 0, 10, -26), ('#BDE6FA', 38, 88, 8, 7, -2, -8, -20), ('#FFE59A', 28, 80, 70, 8, -4, 6, -18),
                                                         ('#CDEFD2', 46, 2, 72, 10, -1, 12, -22), ('#E2D6FF', 22, 50, 4, 6.5, -3, -6, -16), ('#FFD2B8', 18, 94, 44, 7.5, -5, -4, -14)])
@@ -120,44 +108,31 @@ def index():
   </div>
 </section>
 
-<section class="sec" id="games" style="padding-top:24px">
+<section class="sec" id="games" style="padding-top:16px">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow" data-i18n="gamesEyebrow">Our games</span><h2 data-i18n="gamesTitle">Play a hand, watch a story</h2><p data-i18n="gamesSub">Classic card games you already love, with a tiny 3D world waiting behind every win.</p></div>
-
-    <article class="game" aria-labelledby="sb-title">
-      <div class="media">{pic('sb-nativity', 'Angels over the shepherds in a tiny 3D Bethlehem from Solitaire Bible 3D', '(min-width: 900px) 600px, 100vw').replace(' loading="lazy"', ' fetchpriority="high"')}</div>
-      <div class="info">
-        <span class="status"><i></i><span data-i18n="sbStatus">Launching October 2026</span></span>
-        <div class="title"><img class="icon" src="/assets/img/sb-icon-256.webp" width="76" height="76" alt="Solitaire Bible 3D app icon"><div><h3 id="sb-title">Solitaire Bible 3D</h3><div class="by" data-i18n="sbBy">Klondike solitaire · 36 Bible stories</div></div></div>
-        <p class="desc" data-i18n="sbDesc">Win a hand of classic Klondike and watch the next moment of a Bible story come alive, from the first day of Creation to Easter morning. The Red Sea parts, the walls of Jericho fall and David faces Goliath, all in cozy little 3D worlds you can spin and explore.</p>
-        <ul class="chips">
-          <li style="--c:var(--butter-soft)" data-i18n="chip1">221 animated moments</li>
-          <li style="--c:var(--pink-soft)" data-i18n="chip2">100 hidden crosses to find</li>
-          <li style="--c:var(--sky-soft)" data-i18n="chip3">Verses read aloud</li>
-          <li style="--c:var(--matcha-soft)" data-i18n="chip4">38 languages</li>
-          <li style="--c:var(--lilac-soft)" data-i18n="chip5">Classical music</li>
-        </ul>
-        <div class="stores">{store('sb.play', 'phone', 'Google Play')}{store('sb.amazon', 'tablet', 'Amazon Appstore')}{store('sb.apple', 'phone', 'iPhone &amp; iPad')}</div>
-        <div class="legal-links"><a href="/privacy" data-i18n="legalPriv">Privacy policy</a> · <a href="/terms" data-i18n="legalTerms">Terms of use</a></div>
-      </div>
-    </article>
-    <ul class="shots" aria-label="Scenes from Solitaire Bible 3D">
-{shot_html}
-    </ul>
-
-    <article class="soon" aria-labelledby="dawn-title" style="margin-top:56px">
-      <div class="sun" aria-hidden="true"></div>
-      <div class="inner">
-        <span class="badge" data-i18n="badge">Coming soon</span>
-        <div class="lockup"><small>Solitaire</small><h3 id="dawn-title">Dawn of Civilizations</h3></div>
-        <p class="desc" data-i18n="dawnDesc">Our cozy little people are heading back to the very beginning of history. Win hands of solitaire to build the first great cities, watch the map of the ancient world change as empires rise and fall, and collect treasures from the dawn of civilization.</p>
-        <p class="desc" style="font-weight:700;font-size:17px" data-i18n="dawnWhere">Coming to Android, Fire tablets, iPhone and iPad.</p>
-      </div>
-      <ul class="civs">
-{civ_html}
-      </ul>
-      <div class="note"><p data-i18n="dawnNote">Want to know the moment it's out?</p><a class="btn pink" href="mailto:{EMAIL}?subject=Dawn%20of%20Civilizations">{ICON['bell']}<span data-i18n="dawnBtn">Tell me when it's ready</span></a></div>
-    </article>
+    <div class="sec-head"><span class="eyebrow" data-i18n="gamesEyebrow">Our games</span><h2 data-i18n="gamesTitle">Pick a world</h2><p data-i18n="gamesSub">Classic card games you already love, with a tiny 3D world waiting behind every win.</p></div>
+    <div class="tiles">
+      <a class="tile sb" href="/solitaire-bible-3d">
+        <img src="/assets/img/sb-redsea-1280.webp" srcset="/assets/img/sb-redsea-640.webp 640w, /assets/img/sb-redsea-1280.webp 1280w" sizes="(min-width: 900px) 540px, 100vw" alt="" width="1280" height="720">
+        <div class="top"><img src="/assets/img/sb-icon-256.webp" alt="Solitaire Bible 3D app icon" width="64" height="64"><span class="pill" data-i18n="tileSbStatus">Launching October 2026</span></div>
+        <div class="in">
+          <h3><small data-i18n="tileSolitaire">Solitaire</small>Bible 3D</h3>
+          <p data-i18n="tileSbTag">Win a hand of Klondike and watch a Bible story come alive, from Creation to Easter.</p>
+          <div class="plats"><span>Android</span><span>Fire</span><span>iPhone &amp; iPad</span></div>
+          <span class="btn go"><span data-i18n="tileSbBtn">Explore the game</span> <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+      <a class="tile dawn" href="/dawn-of-civilizations">
+        <img src="/assets/img/civ-egypt-1280.webp" srcset="/assets/img/civ-egypt-640.webp 640w, /assets/img/civ-egypt-1280.webp 1280w" sizes="(min-width: 900px) 540px, 100vw" alt="" width="1280" height="720">
+        <div class="top"><span></span><span class="pill soon" data-i18n="badge">Coming soon</span></div>
+        <div class="in">
+          <h3><small data-i18n="tileSolitaire">Solitaire</small>Dawn of Civilizations</h3>
+          <p data-i18n="tileDawnTag">Win hands to build the first cities of the ancient world and watch empires rise across the map.</p>
+          <div class="plats"><span>Android</span><span>Fire</span><span>iPhone &amp; iPad</span></div>
+          <span class="btn go"><span data-i18n="tileDawnBtn">Take a peek</span> <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -188,7 +163,227 @@ def index():
   </div>
 </section>
 </main>
-''' + foot()
+''' + foot(['/assets/js/i18n-home.js?v=2'])
+
+
+STORIES = ["Creation", "The Garden of Eden", "Noah's Ark", "The Tower of Babel", "Abraham and Sarah", "Jacob and Esau", "Joseph and His Brothers",
+           "Baby Moses and the Burning Bush", "The Plagues of Egypt", "Crossing the Red Sea", "The Golden Calf", "The Twelve Spies", "Balaam's Donkey",
+           "The Walls of Jericho", "Gideon", "Samson", "Boy Samuel", "David and Goliath", "David Dances", "King Solomon", "Elijah", "Elisha",
+           "Jonah and the Big Fish", "The Fiery Furnace", "The Writing on the Wall", "Daniel in the Lions' Den", "The Valley of Dry Bones",
+           "The First Christmas", "Lost in the Temple", "John the Baptist", "Water into Wine", "Nets and Waves", "Feeding the 5,000", "Zacchaeus",
+           "Lazarus", "The King: Palm Sunday to Easter"]
+
+
+def sb_page():
+    shots = [('sb-redsea', 'c1', 'Crossing the Red Sea'), ('sb-noah', 'c2', "Noah's Ark"), ('sb-goliath', 'c3', 'David and Goliath'),
+             ('sb-jericho', 'c4', 'The walls of Jericho'), ('sb-jonah', 'c5', 'Jonah and the big fish'), ('sb-nativity', 'c6', 'The first Christmas'),
+             ('sb-finale', 'c7', 'The grand finale')]
+    gal = '\n'.join(f'      <li><figure>{pic(n, c)}<figcaption data-i18n="sb{k}">{c}</figcaption></figure></li>' for n, k, c in shots)
+    stories = ''.join(f'<li data-i18n="st{i}">{t}</li>' for i, t in enumerate(STORIES))
+    crosses = [(13, 'Legendary'), (49, 'Legendary'), (5, 'Epic'), (98, 'Legendary'), (12, 'Epic'), (44, 'Legendary'), (4, 'Rare'), (14, 'Legendary')]
+    rar = {'Legendary': 'rarL', 'Epic': 'rarE', 'Rare': 'rarR'}
+    xs = ''.join(f'<li style="--i:{j}"><img src="/assets/img/crosses/cross-{i}.svg" alt="" width="110" height="154" loading="lazy"><span data-i18n="{rar[r]}">{r}</span></li>' for j, (i, r) in enumerate(crosses))
+    feats = [('f1', 'Verses read aloud', 'f1d', 'Real Bible verses after every win, read aloud in English, Spanish and Portuguese.'),
+             ('f2', 'Classical music', 'f2d', 'Bach, Handel, Haydn, Vivaldi and Pachelbel play while you think.'),
+             ('f3', 'Day and night', 'f3d', 'The sky follows your own clock, so evening games glow under the stars.'),
+             ('f4', 'Spin and zoom', 'f4d', 'Push the cards aside to turn, tilt and zoom around each little world.'),
+             ('f5', 'Classic Klondike', 'f5d', 'Draw 1 or Draw 3, unlimited undo, hints and deals you can always win.'),
+             ('f6', 'Stuck? Skip it', 'f6d', 'Spend manna or watch a short video to move on to a fresh hand.'),
+             ('f7', 'Upright or sideways', 'f7d', 'Big, clear cards for phones and tablets, held either way.'),
+             ('f8', '38 languages', 'f8d', 'Play in your language, from Spanish and Portuguese to Swahili and Korean.')]
+    feat = ''.join(f'<li><b data-i18n="{a}">{b}</b><span data-i18n="{c}">{d}</span></li>' for a, b, c, d in feats)
+    clouds = ''.join(f'<span class="cloud" style="width:{w}px;height:{h}px;top:{t}%;animation-duration:{d}s;animation-delay:-{dl}s"></span>' for w, h, t, d, dl in [(160, 44, 8, 46, 5), (120, 34, 20, 60, 30), (200, 54, 13, 72, 50)])
+    title = 'Solitaire Bible 3D · Mochi Moose'
+    desc = 'Classic Klondike solitaire where every win brings a Bible story to life in a tiny 3D world. 36 stories, 221 moments, 100 hidden crosses.'
+    return head(title, desc, '/solitaire-bible-3d', body='pg-sb', og='/og-sb.jpg') + f'''<main id="main">
+<section class="g-hero">
+  <img class="bg" src="/assets/img/sb-finale-1280.webp" alt="" width="1280" height="720" fetchpriority="high">
+  {clouds}
+  <div class="wrap">
+    <div><a class="back" href="/#games"><span aria-hidden="true">←</span> <span data-i18n="allGames">All games</span></a></div>
+    <div class="sb-logo" role="img" aria-label="Solitaire Bible 3D"><span class="s">SOLITAIRE</span><span class="b">Bible<span class="d">3D</span></span></div>
+    <div style="text-align:center;display:grid;gap:18px;justify-items:center">
+      <span class="sb-status"><i></i><span data-i18n="sbStatus">Launching October 2026</span></span>
+      <p class="lead" data-i18n="sbLead">Win a hand of classic Klondike and watch the next moment of a Bible story come alive, from the first day of Creation to Easter morning.</p>
+      <div class="stores">{store('sb.play', 'phone', 'Google Play')}{store('sb.amazon', 'tablet', 'Amazon Appstore')}{store('sb.apple', 'phone', 'iPhone &amp; iPad')}</div>
+    </div>
+  </div>
+</section>
+
+<section class="g-sec">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="howTitle">Play a hand. Watch the story.</h2><p data-i18n="howSub">The relaxing card game you know, with a whole world waiting behind the cards.</p></div>
+    <div class="device"><img src="/assets/img/sb-play-1280.webp" srcset="/assets/img/sb-play-640.webp 640w, /assets/img/sb-play-1280.webp 1280w" sizes="(min-width: 1000px) 960px, 94vw" width="1280" height="640" loading="lazy" alt="A hand of solitaire over the parting of the Red Sea"></div>
+    <ol class="steps">
+      <li><b data-i18n="s1t">Play a hand</b><span data-i18n="s1">Classic Klondike with big, friendly cards.</span></li>
+      <li><b data-i18n="s2t">Win it</b><span data-i18n="s2">Every win moves the story one moment forward.</span></li>
+      <li><b data-i18n="s3t">Watch it come alive</b><span data-i18n="s3">The sea parts, the walls fall, the giant tumbles.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="g-sec" style="padding-top:24px">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="stTitle">36 stories, 221 moments</h2><p data-i18n="stSub">Tiny living worlds built to look like the real places, full of people, animals and everyday life.</p></div>
+    <ul class="gal" aria-label="Scenes from the game">
+{gal}
+    </ul>
+    <ul class="chipcloud">{stories}</ul>
+  </div>
+</section>
+
+<section class="g-sec">
+  <div class="wrap split">
+    <img class="scroll-img" src="/assets/img/sb-saying-900.webp" width="900" height="563" loading="lazy" alt="A saying of Jesus on a parchment scroll, with a painting by James Tissot">
+    <div>
+      <h2 data-i18n="vTitle">Words that stay with you</h2>
+      <p data-i18n="vSub">After every win, a real Bible verse appears on a parchment scroll and is read aloud.</p>
+      <ul>
+        <li data-i18n="v1">Tap Jesus and the Bible heroes to collect their sayings</li>
+        <li data-i18n="v2">Each saying comes with a painting by James Tissot</li>
+        <li data-i18n="v3">Share any verse or saying with someone you love</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="heaven g-sec">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="xTitle">100 hidden crosses</h2><p data-i18n="xSub">Beautiful necklace crosses are hidden all over the stories: on trees, on houses, carried by birds. Some are easy to spot. Some you'll have to turn the world to find.</p></div>
+    <ul class="crosses">{xs}</ul>
+    <div class="split" style="margin-top:56px">
+      <img class="gift" src="/assets/img/sb-gift-540.webp" width="540" height="675" loading="lazy" alt="A gift card with a golden cross and the note: I love you, Mom!">
+      <div>
+        <h2 data-i18n="gTitle">Gift one to someone special</h2>
+        <p data-i18n="gSub">Unlock a cross with manna, then gift it once, ever, with your own handwritten note.</p>
+        <ul>
+          <li data-i18n="g1">Common, rare, epic and legendary crosses</li>
+          <li data-i18n="g2">See every cross and saying in My Collection</li>
+          <li data-i18n="g3">A golden share button, good for one special share</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="g-sec">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="fTitle">Made to relax</h2></div>
+    <ul class="feat">{feat}</ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 data-i18n="ctaTitle">Coming this October</h2>
+    <div class="stores">{store('sb.play', 'phone', 'Google Play')}{store('sb.amazon', 'tablet', 'Amazon Appstore')}{store('sb.apple', 'phone', 'iPhone &amp; iPad')}</div>
+    <div class="legal-links"><a href="/privacy" data-i18n="legalPriv">Privacy policy</a> · <a href="/terms" data-i18n="legalTerms">Terms of use</a> · <a href="/support" data-i18n="navSupport">Support</a></div>
+  </div>
+</section>
+</main>
+''' + foot(['/assets/js/i18n-sb.js?v=2'])
+
+
+def dawn_page():
+    civs = [('civ-sumer', 'cv1', 'Sumer', 'cv1s', 'The first cities'), ('civ-egypt', 'cv2', 'Egypt', 'cv2s', 'Pyramids on the Nile'),
+            ('civ-assyria', 'cv3', 'Assyria', 'cv3s', 'Mighty Nineveh'), ('civ-babylon', 'cv4', 'Babylon', 'cv4s', 'The great city on the Euphrates')]
+    civ = '\n'.join(f'        <li><figure>{pic(n, t)}<figcaption><b data-i18n="{k}">{t}</b> · <span data-i18n="{ks}">{s}</span></figcaption></figure></li>' for n, k, t, ks, s in civs)
+    minds = [('Imhotep', 'fl. c. 2650 BC', 'm1', 'Architect of the first pyramid, later honored as a great healer.', '#e8a51a', 'I'),
+             ('Sargon of Akkad', 'c. 2334–2279 BC', 'm2', 'Built one of the first empires in history.', '#f08a3c', 'S'),
+             ('Enheduanna', 'fl. c. 2300 BC', 'm3', 'Priestess of Ur and the earliest author we know by name.', '#3aa0d8', 'E'),
+             ('Hammurabi', 'c. 1792–1750 BC', 'm4', 'Carved his famous laws in stone “so that the strong should not harm the weak.”', '#4a6fd1', 'H'),
+             ('Hatshepsut', 'c. 1479–1458 BC', 'm5', 'A woman pharaoh who sent great trading ships to the land of Punt.', '#e8a51a', 'H'),
+             ('Thutmose III', '1479–1425 BC', 'm6', 'A general-pharaoh who won the Battle of Megiddo.', '#c8683a', 'T'),
+             ('Ramesses II', '1279–1213 BC', 'm7', 'Fought at Kadesh, then made one of the oldest known peace treaties.', '#9a6a3e', 'R'),
+             ('Puduhepa', 'c. 1275–1245 BC', 'm8', 'A Hittite queen and diplomat who helped keep that peace.', '#9b7bea', 'P')]
+    mind = ''.join(f'<li><div class="who"><span class="ini" style="--c:{c}">{i}</span><div><b>{n}</b><small data-i18n="{k}d">{d}</small></div></div><span data-i18n="{k}">{t}</span></li>' for n, d, k, t, c, i in minds)
+    treasures = ['Royal Game of Ur', 'Standard of Ur', 'Narmer Palette', 'Code of Hammurabi', 'Cylinder seals', 'Clay tablets', 'Queen Puabi’s crown',
+                 'Warka Vase', 'Bust of Nefertiti', 'Mask of Tutankhamun', 'Lion Gate of Hattusa', 'Copper ingots of Uluburun']
+    tre = ''.join(f'<li data-i18n="tr{i}">{t}</li>' for i, t in enumerate(treasures))
+    title = 'Solitaire Dawn of Civilizations · Mochi Moose'
+    desc = 'Coming soon from Mochi Moose: win hands of solitaire to build the first cities of the ancient Middle East and watch empires rise and fall.'
+    return head(title, desc, '/dawn-of-civilizations', body='pg-dawn', og='/og-dawn.jpg') + f'''<main id="main">
+<section class="g-hero">
+  <img class="bg" src="/assets/img/civ-egypt-1280.webp" alt="" width="1280" height="720" fetchpriority="high">
+  <div class="wrap">
+    <div><a class="back" href="/#games"><span aria-hidden="true">←</span> <span data-i18n="allGames">All games</span></a></div>
+    <div class="dawn-logo" role="img" aria-label="Solitaire Dawn of Civilizations"><small>Solitaire</small><b>Dawn of Civilizations</b></div>
+    <div style="text-align:center;display:grid;gap:18px;justify-items:center">
+      <span class="badge" data-i18n="badge">Coming soon</span>
+      <p class="lead" data-i18n="dLead">Our cozy little people travel back to the very beginning of history. Win hands of solitaire to build the first cities, and watch empires rise and fall across the ancient Middle East.</p>
+      <a class="btn" href="mailto:{EMAIL}?subject=Dawn%20of%20Civilizations">{ICON['bell']}<span data-i18n="dawnBtn">Tell me when it's ready</span></a>
+      <p style="font:600 15px/1.3 var(--display);text-shadow:0 1px 8px rgba(0,0,0,.4)" data-i18n="dawnWhere">Coming to Android, Fire tablets, iPhone and iPad.</p>
+    </div>
+  </div>
+</section>
+<div class="frieze" aria-hidden="true"></div>
+
+<section class="g-sec">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="mTitle">Watch the ancient world come alive</h2><p data-i18n="mSub">Start with an empty map. Villages appear, then cities, then kingdoms and empires, over more than 8,000 years.</p></div>
+    <div class="mapbox" id="dawnMap"><div class="hud"><span class="year" id="mapYear">9,600 BC</span><span class="cap" id="mapCap"></span></div></div>
+    <div class="mapctl"><button type="button" id="mapPlay" aria-pressed="true" aria-label="Play or pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></button><input type="range" id="mapRange" aria-label="Year"><span data-i18n="mDrag">Drag through time</span></div>
+    <ul class="maplegend"><li style="--c:#3aa0d8"><i></i>Sumer</li><li style="--c:#f08a3c"><i></i>Akkad</li><li style="--c:#e8a51a"><i></i><span data-i18n="cv2">Egypt</span></li><li style="--c:#4a6fd1"><i></i><span data-i18n="cv4">Babylon</span></li><li style="--c:#d0503c"><i></i><span data-i18n="cv3">Assyria</span></li><li style="--c:#9a6a3e"><i></i><span data-i18n="lHit">Hittites</span></li><li style="--c:#9b7bea"><i></i>Mitanni</li><li style="--c:#4fb06a"><i></i>Elam</li></ul>
+  </div>
+</section>
+
+<section class="g-sec" style="padding-top:12px">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="hTitle">How it plays</h2></div>
+    <ol class="steps">
+      <li><b data-i18n="h1t">See the whole map</b><span data-i18n="h1">Time moves forward and the map fills with towns, roads, trade and kingdoms.</span></li>
+      <li><b data-i18n="h2t">Fly down into history</b><span data-i18n="h2">The birth of a city, a new invention, a famous battle, a great trade fair.</span></li>
+      <li><b data-i18n="h3t">Win hands to play it forward</b><span data-i18n="h3">Each win moves the moment on, from the first villages to the great collapse.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="g-sec">
+  <div class="wrap split">
+    <img class="scroll-img" src="/assets/img/dawn-battle-1280.webp" srcset="/assets/img/dawn-battle-640.webp 640w, /assets/img/dawn-battle-1280.webp 1280w" sizes="(min-width: 900px) 540px, 94vw" width="1280" height="720" loading="lazy" alt="Two armies of little soldiers clash on a green hill, seen from high above">
+    <div>
+      <h2 data-i18n="bTitle">A bird’s-eye view of history</h2>
+      <p data-i18n="bSub">High above the world, you see it all: markets and caravans, builders and farmers, and armies of tiny soldiers charging across the hills.</p>
+      <ul>
+        <li data-i18n="b1">The first cities, temples and pyramids</li>
+        <li data-i18n="b2">Trade by donkey caravan, river boat and ship</li>
+        <li data-i18n="b3">Great battles like Megiddo and Kadesh</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="g-sec" style="padding-top:12px">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="cTitle">Four great civilizations, and many more</h2></div>
+    <ul class="gal" aria-label="Civilizations">
+{civ}
+    </ul>
+  </div>
+</section>
+
+<section class="g-sec">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="kTitle">Meet the great minds</h2><p data-i18n="kSub">Kings and queens, builders, writers and lawgivers. Tap them in the game to collect words from real ancient texts.</p></div>
+    <ul class="minds">{mind}</ul>
+  </div>
+</section>
+
+<section class="g-sec" style="padding-top:12px">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="tTitle">Treasures to find</h2><p data-i18n="tSub">Hidden in every age: real wonders from the museums of the world. (No coins yet: people paid in silver, weighed in shekels. Coins came much later!)</p></div>
+    <ul class="chipcloud treasures">{tre}</ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 data-i18n="dCta">Be the first to play</h2>
+    <div class="stores" style="margin-top:18px"><a class="btn pink" href="mailto:{EMAIL}?subject=Dawn%20of%20Civilizations">{ICON['bell']}<span data-i18n="dawnBtn">Tell me when it's ready</span></a></div>
+  </div>
+</section>
+</main>
+''' + foot(['/assets/js/i18n-dawn.js?v=2', '/assets/js/dawn-land.js?v=2', '/assets/js/dawn-map.js?v=2'])
 
 
 def doc_page(path, key, title_en, desc, sections, sub_en='', sub_key=''):
@@ -228,6 +423,8 @@ def write(name, html):
 
 if __name__ == '__main__':
     write('index.html', index())
+    write('solitaire-bible-3d.html', sb_page())
+    write('dawn-of-civilizations.html', dawn_page())
     write('privacy.html', doc_page('/privacy', 'privTitle', 'Privacy Policy',
           'How Mochi Moose games and this website handle information: no accounts, progress stays on your device, family-safe ads by Google AdMob.', PRIVACY))
     write('terms.html', doc_page('/terms', 'termsTitle', 'Terms of Use', 'The terms for playing Mochi Moose games, including Solitaire Bible 3D.', TERMS))

@@ -73,6 +73,10 @@
     }
   };
 
+  // page-specific strings (game pages) add to the dictionaries
+  var X = window.MM_EXTRA || {};
+  ['es', 'pt'].forEach(function (l) { if (X[l]) for (var k in X[l]) T[l][k] = X[l][k]; });
+
   var EN = {};
   var nodes = document.querySelectorAll('[data-i18n]');
   for (var i = 0; i < nodes.length; i++) EN[nodes[i].getAttribute('data-i18n')] = nodes[i].innerHTML;
@@ -108,6 +112,7 @@
       var ls = document.querySelectorAll('.langbar a');
       for (var c = 0; c < ls.length; c++) ls[c].setAttribute('aria-current', ls[c].getAttribute('data-lang') === lang ? 'true' : 'false');
     }
+    try { document.dispatchEvent(new CustomEvent('mm:lang', { detail: lang })); } catch (e) { }
     var t = document.querySelector('[data-title]');
     if (t) { var tk = t.getAttribute('data-title'); var tv = lang === 'en' ? EN[tk] : d[tk]; if (tv) document.title = tv.replace(/<[^>]+>/g, '') + ' · Mochi Moose'; }
   }

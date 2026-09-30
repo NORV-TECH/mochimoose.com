@@ -1,0 +1,38 @@
+window.MM_EXTRA = {
+  es: {
+    allGames: 'Todos los juegos', sbStatus: 'Llega en octubre de 2026',
+    sbLead: 'Gana una mano de Klondike clásico y mira cómo cobra vida el siguiente momento de una historia bíblica, desde el primer día de la Creación hasta la mañana de Pascua.',
+    howTitle: 'Juega una mano. Mira la historia.', howSub: 'El juego de cartas relajante que ya conoces, con todo un mundo esperándote detrás de las cartas.',
+    s1t: 'Juega una mano', s1: 'Klondike clásico con cartas grandes y amigables.', s2t: 'Gánala', s2: 'Cada victoria hace avanzar la historia un momento.', s3t: 'Mira cómo cobra vida', s3: 'El mar se abre, caen los muros, el gigante se desploma.',
+    stTitle: '36 historias, 221 momentos', stSub: 'Pequeños mundos llenos de vida, hechos para parecerse a los lugares reales, con gente, animales y vida cotidiana.',
+    sbc1: 'Cruzando el mar Rojo', sbc2: 'El arca de Noé', sbc3: 'David y Goliat', sbc4: 'Los muros de Jericó', sbc5: 'Jonás y el gran pez', sbc6: 'La primera Navidad', sbc7: 'El gran final',
+    st0: 'La Creación', st1: 'El jardín del Edén', st2: 'El arca de Noé', st3: 'La torre de Babel', st4: 'Abraham y Sara', st5: 'Jacob y Esaú', st6: 'José y sus hermanos', st7: 'El bebé Moisés y la zarza ardiente', st8: 'Las plagas de Egipto', st9: 'El cruce del mar Rojo', st10: 'El becerro de oro', st11: 'Los doce espías', st12: 'La burra de Balaam', st13: 'Las murallas de Jericó', st14: 'Gedeón', st15: 'Sansón', st16: 'El niño Samuel', st17: 'David y Goliat', st18: 'David baila', st19: 'El rey Salomón', st20: 'Elías', st21: 'Eliseo', st22: 'Jonás y el gran pez', st23: 'El horno de fuego', st24: 'La escritura en la pared', st25: 'Daniel en el foso de los leones', st26: 'El valle de los huesos secos', st27: 'La primera Navidad', st28: 'Perdido en el templo', st29: 'Juan el Bautista', st30: 'El agua convertida en vino', st31: 'Redes y olas', st32: 'Comida para 5000', st33: 'Zaqueo', st34: 'Lázaro', st35: 'El Rey: del Domingo de Ramos a la Pascua',
+    vTitle: 'Palabras que se quedan contigo', vSub: 'Después de cada victoria aparece un versículo bíblico real en un pergamino y se lee en voz alta.',
+    v1: 'Toca a Jesús y a los héroes de la Biblia para coleccionar sus frases', v2: 'Cada frase viene con una pintura de James Tissot', v3: 'Comparte cualquier versículo o frase con alguien que amas',
+    xTitle: '100 cruces escondidas', xSub: 'Hermosas cruces de collar están escondidas por todas las historias: en árboles, en casas, llevadas por pájaros. Algunas se ven fácil. Para otras tendrás que girar el mundo.',
+    rarL: 'Legendaria', rarE: 'Épica', rarR: 'Rara',
+    gTitle: 'Regala una a alguien especial', gSub: 'Desbloquea una cruz con maná y regálala una sola vez, con tu propia nota escrita a mano.',
+    g1: 'Cruces comunes, raras, épicas y legendarias', g2: 'Mira todas tus cruces y frases en Mi colección', g3: 'Un botón dorado para compartir, válido para un envío especial',
+    fTitle: 'Hecho para relajarte',
+    f1: 'Versículos narrados', f1d: 'Versículos bíblicos reales después de cada victoria, leídos en español, inglés y portugués.', f2: 'Música clásica', f2d: 'Bach, Handel, Haydn, Vivaldi y Pachelbel suenan mientras piensas.', f3: 'Día y noche', f3d: 'El cielo sigue tu propio reloj: de noche, tus partidas brillan bajo las estrellas.', f4: 'Gira y acerca', f4d: 'Aparta las cartas para girar, inclinar y acercarte a cada pequeño mundo.', f5: 'Klondike clásico', f5d: 'Robar 1 o 3, deshacer sin límite, pistas y partidas que siempre se pueden ganar.', f6: '¿Atascado? Sáltala', f6d: 'Usa maná o mira un video corto para pasar a una mano nueva.', f7: 'Vertical u horizontal', f7d: 'Cartas grandes y claras para teléfonos y tabletas, como las sostengas.', f8: '38 idiomas', f8d: 'Juega en tu idioma, del español y el portugués al suajili y el coreano.',
+    ctaTitle: 'Llega este octubre'
+  },
+  pt: {
+    allGames: 'Todos os jogos', sbStatus: 'Chega em outubro de 2026',
+    sbLead: 'Vença uma mão de Klondike clássico e veja o próximo momento de uma história bíblica ganhar vida, do primeiro dia da Criação até a manhã da Páscoa.',
+    howTitle: 'Jogue uma mão. Veja a história.', howSub: 'O jogo de cartas relaxante que você já conhece, com um mundo inteiro esperando por trás das cartas.',
+    s1t: 'Jogue uma mão', s1: 'Klondike clássico com cartas grandes e amigáveis.', s2t: 'Vença', s2: 'Cada vitória leva a história um momento adiante.', s3t: 'Veja ganhar vida', s3: 'O mar se abre, as muralhas caem, o gigante tomba.',
+    stTitle: '36 histórias, 221 momentos', stSub: 'Pequenos mundos cheios de vida, feitos para parecer os lugares reais, com gente, animais e o dia a dia.',
+    sbc1: 'Atravessando o mar Vermelho', sbc2: 'A arca de Noé', sbc3: 'Davi e Golias', sbc4: 'As muralhas de Jericó', sbc5: 'Jonas e o grande peixe', sbc6: 'O primeiro Natal', sbc7: 'O grande final',
+    st0: 'A Criação', st1: 'O Jardim do Éden', st2: 'A Arca de Noé', st3: 'A Torre de Babel', st4: 'Abraão e Sara', st5: 'Jacó e Esaú', st6: 'José e seus irmãos', st7: 'O bebê Moisés e a sarça ardente', st8: 'As pragas do Egito', st9: 'A travessia do mar Vermelho', st10: 'O bezerro de ouro', st11: 'Os doze espiões', st12: 'A jumenta de Balaão', st13: 'As muralhas de Jericó', st14: 'Gideão', st15: 'Sansão', st16: 'O menino Samuel', st17: 'Davi e Golias', st18: 'Davi dança', st19: 'O rei Salomão', st20: 'Elias', st21: 'Eliseu', st22: 'Jonas e o grande peixe', st23: 'A fornalha ardente', st24: 'A escrita na parede', st25: 'Daniel na cova dos leões', st26: 'O vale dos ossos secos', st27: 'O primeiro Natal', st28: 'Perdido no templo', st29: 'João Batista', st30: 'A água virou vinho', st31: 'Redes e ondas', st32: 'Comida para 5.000', st33: 'Zaqueu', st34: 'Lázaro', st35: 'O Rei: do Domingo de Ramos à Páscoa',
+    vTitle: 'Palavras que ficam com você', vSub: 'Depois de cada vitória, um versículo bíblico real aparece num pergaminho e é lido em voz alta.',
+    v1: 'Toque em Jesus e nos heróis da Bíblia para colecionar as frases deles', v2: 'Cada frase vem com uma pintura de James Tissot', v3: 'Compartilhe qualquer versículo ou frase com quem você ama',
+    xTitle: '100 cruzes escondidas', xSub: 'Lindas cruzes de colar estão escondidas por todas as histórias: em árvores, em casas, levadas por pássaros. Algumas são fáceis de ver. Para outras, você vai ter que girar o mundo.',
+    rarL: 'Lendária', rarE: 'Épica', rarR: 'Rara',
+    gTitle: 'Presenteie alguém especial', gSub: 'Desbloqueie uma cruz com maná e presenteie uma única vez, com o seu próprio recado escrito à mão.',
+    g1: 'Cruzes comuns, raras, épicas e lendárias', g2: 'Veja todas as suas cruzes e frases em Minha coleção', g3: 'Um botão dourado de compartilhar, válido para um envio especial',
+    fTitle: 'Feito para relaxar',
+    f1: 'Versículos narrados', f1d: 'Versículos bíblicos reais depois de cada vitória, lidos em português, inglês e espanhol.', f2: 'Música clássica', f2d: 'Bach, Handel, Haydn, Vivaldi e Pachelbel tocam enquanto você pensa.', f3: 'Dia e noite', f3d: 'O céu segue o seu relógio: à noite, suas partidas brilham sob as estrelas.', f4: 'Gire e aproxime', f4d: 'Afaste as cartas para girar, inclinar e aproximar cada pequeno mundo.', f5: 'Klondike clássico', f5d: 'Comprar 1 ou 3, desfazer sem limite, dicas e mãos que sempre dá para vencer.', f6: 'Travou? Pule', f6d: 'Use maná ou assista a um vídeo curto para ir para uma mão nova.', f7: 'Vertical ou horizontal', f7d: 'Cartas grandes e claras para celulares e tablets, do jeito que você segurar.', f8: '38 idiomas', f8d: 'Jogue no seu idioma, do português e espanhol ao suaíli e coreano.',
+    ctaTitle: 'Chega neste outubro'
+  }
+};

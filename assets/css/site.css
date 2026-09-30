@@ -215,3 +215,148 @@ details > div { padding-bottom: 16px }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important }
 }
+
+/* =====================================================================
+   v2: game tiles on the home page, and one themed world per game
+   ===================================================================== */
+@font-face { font-family: "Baloo 2"; font-weight: 600; font-display: swap; src: url("../fonts/baloo-2-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Baloo 2"; font-weight: 800; font-display: swap; src: url("../fonts/baloo-2-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Alegreya"; font-weight: 700; font-display: swap; src: url("../fonts/alegreya-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Alegreya"; font-weight: 400; font-style: italic; font-display: swap; src: url("../fonts/alegreya-latin-400-italic.woff2") format("woff2"); }
+
+/* ---------- home: game tiles ---------- */
+.tiles { display: grid; gap: 22px }
+@media (min-width: 900px) { .tiles { grid-template-columns: 1fr 1fr; gap: 28px } }
+.tile { position: relative; display: block; border-radius: var(--r-lg); overflow: hidden; min-height: 460px; color: #fff; text-decoration: none; box-shadow: var(--shadow); isolation: isolate; transition: transform .35s cubic-bezier(.3, 1.4, .5, 1), box-shadow .3s }
+@media (min-width: 900px) { .tile { min-height: 560px } }
+.tile:hover { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(74, 46, 42, .18); color: #fff }
+.tile > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .6s ease }
+.tile:hover > img { transform: scale(1.05) }
+.tile::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, var(--tint, rgba(20, 40, 80, .82)) 78%) }
+.tile .in { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 24px 26px; display: grid; gap: 12px }
+@media (min-width: 720px) { .tile .in { padding: 34px 34px 32px } }
+.tile .top { position: absolute; top: 20px; left: 20px; right: 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px }
+.tile .top img { width: 64px; height: 64px; border-radius: 17px; box-shadow: 0 8px 20px rgba(0, 0, 0, .25) }
+.tile .pill { font: 700 14px/1 var(--display); padding: 9px 13px; border-radius: 999px; background: rgba(255, 255, 255, .92); color: var(--ink); white-space: nowrap }
+.tile .pill.soon { background: var(--lilac); color: #fff; box-shadow: 0 4px 0 #7E5DD6 }
+.tile h3 { font-size: clamp(30px, 4.4vw, 44px); text-shadow: 0 3px 14px rgba(0, 0, 0, .35) }
+.tile h3 small { display: block; font: 700 15px/1 var(--display); letter-spacing: .28em; text-transform: uppercase; opacity: .9; margin-bottom: 6px }
+.tile p { font-size: 18px; line-height: 1.45; max-width: 30em; text-shadow: 0 1px 8px rgba(0, 0, 0, .35) }
+.tile .plats { display: flex; flex-wrap: wrap; gap: 8px }
+.tile .plats span { font: 600 13px/1 var(--display); padding: 7px 11px; border-radius: 999px; background: rgba(255, 255, 255, .18); border: 1px solid rgba(255, 255, 255, .35); backdrop-filter: blur(4px) }
+.tile .go { justify-self: start; margin-top: 4px }
+.tile.sb { --tint: rgba(24, 58, 110, .86) }
+.tile.dawn { --tint: rgba(120, 44, 40, .86) }
+
+/* ---------- game pages: shared ---------- */
+.back { display: inline-flex; align-items: center; gap: 6px; font: 600 15px/1 var(--display); color: var(--ink-2); text-decoration: none; padding: 8px 12px; border-radius: 999px; background: rgba(255, 255, 255, .75) }
+.back:hover { color: var(--ink); background: #fff }
+.g-hero { position: relative; overflow: hidden; color: #fff; isolation: isolate }
+.g-hero > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2 }
+.g-hero .wrap { position: relative; padding-block: 22px 72px; min-height: min(86vh, 760px); display: grid; align-content: space-between; gap: 30px }
+.g-hero .lead { font-size: clamp(18px, 2.3vw, 22px); max-width: 32em; margin-inline: auto; text-shadow: 0 2px 12px rgba(0, 0, 0, .35) }
+.g-hero .stores { justify-content: center }
+.g-hero .badge { justify-self: center }
+.g-hero .lead { background: var(--leadbg, rgba(16, 40, 80, .42)); padding: 12px 18px; border-radius: 18px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px) }
+.pg-dawn .g-hero .lead { --leadbg: rgba(80, 26, 16, .42) }
+.tile::before { content: ""; position: absolute; inset: 0 0 auto; height: 34%; z-index: -1; background: linear-gradient(180deg, rgba(0, 0, 0, .28), rgba(0, 0, 0, 0)) }
+.g-hero .stores .btn { --bg: rgba(255, 255, 255, .95); --sh: rgba(0, 0, 0, .18) }
+.g-sec { padding-block: 72px }
+.g-head { text-align: center; max-width: 42em; margin: 0 auto 40px }
+.g-head h2 { font-size: clamp(32px, 5vw, 50px) }
+.g-head p { margin-top: 12px; font-size: 19px }
+.steps { display: grid; gap: 18px; counter-reset: st; list-style: none; padding: 0; margin: 28px 0 0 }
+@media (min-width: 800px) { .steps { grid-template-columns: repeat(3, 1fr) } }
+.steps li { counter-increment: st; border-radius: var(--r-md); padding: 22px 22px 22px 74px; position: relative; background: var(--card, #fff) }
+.steps li::before { content: counter(st); position: absolute; left: 20px; top: 20px; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font: 800 20px/1 var(--display); color: #fff; background: var(--accent, var(--pink)) }
+.steps b { display: block; font: 700 20px/1.2 var(--display); margin-bottom: 4px }
+.device { border-radius: 30px; padding: 12px; background: #1d2433; box-shadow: 0 30px 70px rgba(20, 30, 60, .28); max-width: 980px; margin: 0 auto }
+.device img { border-radius: 20px; width: 100% }
+.gal { display: grid; grid-auto-flow: column; grid-auto-columns: min(80%, 420px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 16px 18px; margin-inline: -16px; list-style: none; margin-block: 0; scrollbar-width: thin }
+@media (min-width: 720px) { .gal { margin-inline: -28px; padding-inline: 28px } }
+.gal li { scroll-snap-align: center }
+.gal figure { margin: 0; border-radius: var(--r-md); overflow: hidden; background: #fff; box-shadow: 0 10px 28px rgba(20, 40, 80, .12) }
+.gal img { aspect-ratio: 16 / 9; object-fit: cover; width: 100% }
+.gal figcaption { padding: 12px 16px 14px; font: 700 17px/1.2 var(--display); color: var(--ink) }
+.split { display: grid; gap: 28px; align-items: center }
+@media (min-width: 900px) { .split { grid-template-columns: 1fr 1fr; gap: 48px } .split.rev > :first-child { order: 2 } }
+.split h2 { font-size: clamp(30px, 4.4vw, 44px) }
+.split p { margin-top: 14px; font-size: 18px }
+.split ul { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 10px }
+.split li { padding-left: 34px; position: relative; font-size: 17px }
+.split li::before { content: ""; position: absolute; left: 4px; top: .45em; width: 16px; height: 16px; border-radius: 50%; background: var(--accent, var(--pink)); box-shadow: 0 0 0 4px var(--accent-soft, var(--pink-soft)) }
+.feat { display: grid; gap: 16px; list-style: none; padding: 0; margin: 0 }
+@media (min-width: 640px) { .feat { grid-template-columns: repeat(2, 1fr) } }
+@media (min-width: 1000px) { .feat { grid-template-columns: repeat(4, 1fr) } }
+.feat li { background: var(--card, #fff); border-radius: var(--r-md); padding: 22px }
+.feat b { display: block; font: 700 19px/1.2 var(--display); margin-bottom: 6px }
+.feat span { font-size: 16px; opacity: .85 }
+.chipcloud { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; list-style: none; padding: 0; margin: 26px auto 0; max-width: 980px }
+.chipcloud li { font: 600 15px/1.2 var(--display); padding: 9px 14px; border-radius: 999px; background: var(--card, #fff); box-shadow: 0 2px 0 rgba(0, 0, 0, .05) }
+.cta-band { text-align: center; padding-block: 64px 72px }
+.cta-band h2 { font-size: clamp(30px, 4.6vw, 46px) }
+.cta-band .stores { justify-content: center; margin-top: 22px }
+.cta-band .legal-links { margin-top: 18px }
+
+/* ---------- Solitaire Bible 3D: sky, gold and parchment ---------- */
+.pg-sb { --sky1: #7cc8f2; --sky2: #d9f1ff; --gold: #f2b52e; --gold-2: #d38d0e; --parch: #fbf1d9; --navy: #1f3a66; --accent: var(--gold); --accent-soft: #fff0c4; --card: #fff; background: linear-gradient(180deg, #e8f6ff 0, #f7fbff 40%, #fff9ec 100%) }
+.pg-sb .g-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(40, 110, 180, .55) 0%, rgba(40, 110, 180, 0) 40%, rgba(16, 40, 80, .15) 62%, rgba(16, 40, 80, .75) 100%) }
+.sb-logo { text-align: center; display: grid; justify-items: center; gap: 0; margin-top: 8vh }
+.sb-logo .s { font: 800 clamp(24px, 4vw, 40px)/1 "Baloo 2", var(--display); letter-spacing: .06em; color: #ffd45a; text-shadow: 0 3px 0 #b8741a, 0 8px 24px rgba(0, 0, 0, .3) }
+.sb-logo .b { font: 700 clamp(84px, 16vw, 168px)/.95 "Alegreya", Georgia, serif; color: #fff; text-shadow: 0 5px 0 #3a6ea8, 0 14px 40px rgba(0, 0, 0, .35); display: inline-flex; align-items: flex-end; gap: .12em }
+.sb-logo .d { font: 800 .32em/1 "Baloo 2", var(--display); color: #ffd45a; background: #fff; padding: .16em .3em .08em; border-radius: .3em; color: #d38d0e; box-shadow: 0 5px 0 #d38d0e; margin-bottom: .35em; text-shadow: none }
+.sb-status { display: inline-flex; gap: 8px; align-items: center; font: 700 15px/1 var(--display); background: rgba(255, 255, 255, .92); color: #2f7a44; padding: 9px 14px; border-radius: 999px }
+.sb-status i { width: 9px; height: 9px; border-radius: 50%; background: var(--matcha); animation: pulse 1.8s ease-in-out infinite }
+.pg-sb .g-head h2, .pg-sb .split h2, .pg-sb .cta-band h2 { color: var(--navy) }
+.pg-sb .g-head p, .pg-sb .split p, .pg-sb .split li { color: #4b5f80 }
+.pg-sb .cloud { position: absolute; background: #fff; border-radius: 999px; opacity: .9; filter: blur(1px); animation: drift 38s linear infinite; z-index: -1 }
+.pg-sb .cloud::before, .pg-sb .cloud::after { content: ""; position: absolute; background: #fff; border-radius: 50% }
+.pg-sb .cloud::before { width: 55%; height: 170%; left: 12%; bottom: 20% }
+.pg-sb .cloud::after { width: 40%; height: 130%; right: 14%; bottom: 25% }
+@keyframes drift { from { transform: translateX(-30vw) } to { transform: translateX(130vw) } }
+.scroll-img { border-radius: 22px; box-shadow: 0 24px 60px rgba(60, 40, 10, .22) }
+.heaven { position: relative; overflow: hidden; color: #fff; background: radial-gradient(ellipse at 50% 30%, #fff6d6 0%, #ffd97a 22%, #b98ae8 62%, #5a4fb0 100%) }
+.heaven .g-head h2 { color: #fff; text-shadow: 0 3px 16px rgba(80, 40, 120, .45) }
+.heaven .g-head p { color: #fffaf0; text-shadow: 0 1px 8px rgba(80, 40, 120, .4) }
+.crosses { display: flex; justify-content: center; align-items: flex-end; gap: clamp(6px, 2vw, 22px); flex-wrap: wrap; list-style: none; padding: 0; margin: 0 }
+.crosses li { width: clamp(64px, 10vw, 110px); text-align: center; animation: bob 4s ease-in-out infinite; animation-delay: calc(var(--i) * -.5s) }
+.crosses img { width: 100%; filter: drop-shadow(0 10px 18px rgba(80, 40, 120, .35)) }
+.crosses span { display: block; font: 700 12px/1.2 var(--display); letter-spacing: .06em; text-transform: uppercase; margin-top: 4px; opacity: .95 }
+@keyframes bob { 50% { transform: translateY(-10px) } }
+.heaven .split p, .heaven .split li { color: #fffaf0 }
+.heaven .split h2 { color: #fff }
+.heaven .gift { max-width: 380px; margin: 0 auto; border-radius: 26px; box-shadow: 0 28px 70px rgba(60, 20, 100, .45); transform: rotate(-2deg) }
+
+/* ---------- Dawn of Civilizations: sunrise, clay and lapis ---------- */
+.pg-dawn { --clay: #c8683a; --clay-2: #9e4a24; --sand: #f6e3c0; --lapis: #2f56a8; --gold: #f2b52e; --ink-d: #4a2a1c; --accent: var(--clay); --accent-soft: #ffe0cc; --card: rgba(255, 255, 255, .78); background: linear-gradient(180deg, #fff1e0 0, #ffe7d6 40%, #f6e3c0 100%) }
+.pg-dawn .g-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(255, 150, 90, .55) 0%, rgba(255, 150, 90, 0) 42%, rgba(90, 30, 20, .2) 62%, rgba(80, 26, 16, .8) 100%) }
+.dawn-logo { text-align: center; display: grid; justify-items: center; margin-top: 8vh }
+.dawn-logo small { font: 700 clamp(16px, 2.4vw, 22px)/1 var(--display); letter-spacing: .4em; text-transform: uppercase; color: #fff4d6; text-shadow: 0 2px 10px rgba(80, 30, 10, .5) }
+.dawn-logo b { font: 800 clamp(52px, 10vw, 118px)/.95 "Baloo 2", var(--display); background: linear-gradient(180deg, #fff6cf 10%, #ffc15a 55%, #ff8a4a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 5px 0 #9e4a24) drop-shadow(0 16px 30px rgba(80, 20, 10, .4)); padding: .05em .1em }
+.frieze { height: 18px; background: repeating-linear-gradient(90deg, var(--lapis) 0 14px, var(--gold) 14px 18px, var(--lapis) 18px 32px, #fff4d6 32px 36px); opacity: .95 }
+.pg-dawn .g-head h2, .pg-dawn .split h2, .pg-dawn .cta-band h2 { color: var(--ink-d) }
+.pg-dawn .g-head p, .pg-dawn .split p, .pg-dawn .split li, .pg-dawn .feat span { color: #6e4634 }
+.mapbox { position: relative; border-radius: var(--r-lg); overflow: hidden; box-shadow: 0 30px 70px rgba(90, 40, 20, .25); background: #43b6db }
+.mapbox svg { display: block; width: 100%; height: auto }
+.mapbox .hud { position: absolute; left: 14px; top: 14px; right: 14px; display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; pointer-events: none }
+.mapbox .year { font: 800 clamp(26px, 4.6vw, 46px)/1 "Baloo 2", var(--display); color: #fff; background: rgba(74, 42, 28, .78); padding: 8px 16px 4px; border-radius: 16px; font-variant-numeric: tabular-nums }
+.mapbox .cap { max-width: 22em; font: 600 clamp(14px, 1.8vw, 17px)/1.3 var(--display); color: var(--ink-d); background: rgba(255, 255, 255, .92); padding: 10px 14px; border-radius: 14px; box-shadow: 0 6px 18px rgba(0, 0, 0, .12); transition: opacity .3s }
+.mapctl { display: flex; align-items: center; gap: 14px; margin-top: 16px }
+.mapctl button { flex: none; width: 52px; height: 52px; border-radius: 50%; border: 0; background: var(--clay); color: #fff; box-shadow: 0 5px 0 var(--clay-2); cursor: pointer; display: grid; place-items: center }
+.mapctl button svg { width: 22px; height: 22px }
+.mapctl input { flex: 1; accent-color: var(--clay); height: 30px }
+.mapctl span { font: 700 14px/1 var(--display); color: #6e4634; white-space: nowrap }
+.city circle.dot { transition: r .4s cubic-bezier(.3, 1.8, .5, 1) }
+.maplegend { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 14px; list-style: none; padding: 0 }
+.maplegend li { font: 600 14px/1 var(--display); color: var(--ink-d); display: inline-flex; align-items: center; gap: 7px; background: var(--card); padding: 7px 11px; border-radius: 999px }
+.maplegend i { width: 12px; height: 12px; border-radius: 50%; background: var(--c) }
+.minds { display: grid; gap: 14px; list-style: none; padding: 0; margin: 0 }
+@media (min-width: 640px) { .minds { grid-template-columns: repeat(2, 1fr) } }
+@media (min-width: 1000px) { .minds { grid-template-columns: repeat(4, 1fr) } }
+.minds li { background: var(--card); border-radius: var(--r-md); padding: 20px; display: grid; gap: 6px }
+.minds .who { display: flex; align-items: center; gap: 12px }
+.minds .ini { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font: 800 20px/1 "Baloo 2", var(--display); color: #fff; background: var(--c) }
+.minds b { font: 700 18px/1.15 var(--display); color: var(--ink-d) }
+.minds small { display: block; font-size: 13px; color: #8a6450 }
+.minds q { font: italic 400 17px/1.4 "Alegreya", Georgia, serif; color: #5a3a2a; quotes: "“" "”" }
+.treasures li { background: var(--card) }

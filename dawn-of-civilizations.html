@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Solitaire Dawn of Civilizations · Mochi Moose</title>
+<meta name="description" content="Coming soon from Mochi Moose: win hands of solitaire to build the first cities of the ancient Middle East and watch empires rise and fall.">
+<link rel="canonical" href="https://mochimoose.com/dawn-of-civilizations">
+<meta name="theme-color" content="#FFF8F0">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mochi Moose">
+<meta property="og:title" content="Solitaire Dawn of Civilizations · Mochi Moose">
+<meta property="og:description" content="Coming soon from Mochi Moose: win hands of solitaire to build the first cities of the ancient Middle East and watch empires rise and fall.">
+<meta property="og:url" content="https://mochimoose.com/dawn-of-civilizations">
+<meta property="og:image" content="https://mochimoose.com/og-dawn.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/assets/fonts/fredoka-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/nunito-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=2">
+</head>
+<body class="pg-dawn">
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/" aria-label="Mochi Moose, home"><img src="/assets/img/moose.svg" alt="" width="46" height="42"><span>Mochi <b>Moose</b></span></a>
+  <nav class="nav" aria-label="Main"><a href="/#games" data-i18n="navGames">Games</a><a class="hide-s" href="/#about" data-i18n="navAbout">About</a><a href="/support" data-i18n="navSupport">Support</a></nav>
+  <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-pressed="false">ES</button><button type="button" data-lang="pt" aria-pressed="false">PT</button></div>
+</div></header>
+<main id="main">
+<section class="g-hero">
+  <img class="bg" src="/assets/img/civ-egypt-1280.webp" alt="" width="1280" height="720" fetchpriority="high">
+  <div class="wrap">
+    <div><a class="back" href="/#games"><span aria-hidden="true">←</span> <span data-i18n="allGames">All games</span></a></div>
+    <div class="dawn-logo" role="img" aria-label="Solitaire Dawn of Civilizations"><small>Solitaire</small><b>Dawn of Civilizations</b></div>
+    <div style="text-align:center;display:grid;gap:18px;justify-items:center">
+      <span class="badge" data-i18n="badge">Coming soon</span>
+      <p class="lead" data-i18n="dLead">Our cozy little people travel back to the very beginning of history. Win hands of solitaire to build the first cities, and watch empires rise and fall across the ancient Middle East.</p>
+      <a class="btn" href="mailto:support@mochimoose.com?subject=Dawn%20of%20Civilizations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><span data-i18n="dawnBtn">Tell me when it's ready</span></a>
+      <p style="font:600 15px/1.3 var(--display);text-shadow:0 1px 8px rgba(0,0,0,.4)" data-i18n="dawnWhere">Coming to Android, Fire tablets, iPhone and iPad.</p>
+    </div>
+  </div>
+</section>
+<div class="frieze" aria-hidden="true"></div>
+
+<section class="g-sec">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="mTitle">Watch the ancient world come alive</h2><p data-i18n="mSub">Start with an empty map. Villages appear, then cities, then kingdoms and empires, over more than 8,000 years.</p></div>
+    <div class="mapbox" id="dawnMap"><div class="hud"><span class="year" id="mapYear">9,600 BC</span><span class="cap" id="mapCap"></span></div></div>
+    <div class="mapctl"><button type="button" id="mapPlay" aria-pressed="true" aria-label="Play or pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></button><input type="range" id="mapRange" aria-label="Year"><span data-i18n="mDrag">Drag through time</span></div>
+    <ul class="maplegend"><li style="--c:#3aa0d8"><i></i>Sumer</li><li style="--c:#f08a3c"><i></i>Akkad</li><li style="--c:#e8a51a"><i></i><span data-i18n="cv2">Egypt</span></li><li style="--c:#4a6fd1"><i></i><span data-i18n="cv4">Babylon</span></li><li style="--c:#d0503c"><i></i><span data-i18n="cv3">Assyria</span></li><li style="--c:#9a6a3e"><i></i><span data-i18n="lHit">Hittites</span></li><li style="--c:#9b7bea"><i></i>Mitanni</li><li style="--c:#4fb06a"><i></i>Elam</li></ul>
+  </div>
+</section>
+
+<section class="g-sec" style="padding-top:12px">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="hTitle">How it plays</h2></div>
+    <ol class="steps">
+      <li><b data-i18n="h1t">See the whole map</b><span data-i18n="h1">Time moves forward and the map fills with towns, roads, trade and kingdoms.</span></li>
+      <li><b data-i18n="h2t">Fly down into history</b><span data-i18n="h2">The birth of a city, a new invention, a famous battle, a great trade fair.</span></li>
+      <li><b data-i18n="h3t">Win hands to play it forward</b><span data-i18n="h3">Each win moves the moment on, from the first villages to the great collapse.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="g-sec">
+  <div class="wrap split">
+    <img class="scroll-img" src="/assets/img/dawn-battle-1280.webp" srcset="/assets/img/dawn-battle-640.webp 640w, /assets/img/dawn-battle-1280.webp 1280w" sizes="(min-width: 900px) 540px, 94vw" width="1280" height="720" loading="lazy" alt="Two armies of little soldiers clash on a green hill, seen from high above">
+    <div>
+      <h2 data-i18n="bTitle">A bird’s-eye view of history</h2>
+      <p data-i18n="bSub">High above the world, you see it all: markets and caravans, builders and farmers, and armies of tiny soldiers charging across the hills.</p>
+      <ul>
+        <li data-i18n="b1">The first cities, temples and pyramids</li>
+        <li data-i18n="b2">Trade by donkey caravan, river boat and ship</li>
+        <li data-i18n="b3">Great battles like Megiddo and Kadesh</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="g-sec" style="padding-top:12px">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="cTitle">Four great civilizations, and many more</h2></div>
+    <ul class="gal" aria-label="Civilizations">
+        <li><figure><img src="/assets/img/civ-sumer-640.webp" srcset="/assets/img/civ-sumer-640.webp 640w, /assets/img/civ-sumer-1280.webp 1280w" sizes="(min-width: 900px) 360px, 78vw" width="640" height="360" loading="lazy" decoding="async" alt="Sumer"><figcaption><b data-i18n="cv1">Sumer</b> · <span data-i18n="cv1s">The first cities</span></figcaption></figure></li>
+        <li><figure><img src="/assets/img/civ-egypt-640.webp" srcset="/assets/img/civ-egypt-640.webp 640w, /assets/img/civ-egypt-1280.webp 1280w" sizes="(min-width: 900px) 360px, 78vw" width="640" height="360" loading="lazy" decoding="async" alt="Egypt"><figcaption><b data-i18n="cv2">Egypt</b> · <span data-i18n="cv2s">Pyramids on the Nile</span></figcaption></figure></li>
+        <li><figure><img src="/assets/img/civ-assyria-640.webp" srcset="/assets/img/civ-assyria-640.webp 640w, /assets/img/civ-assyria-1280.webp 1280w" sizes="(min-width: 900px) 360px, 78vw" width="640" height="360" loading="lazy" decoding="async" alt="Assyria"><figcaption><b data-i18n="cv3">Assyria</b> · <span data-i18n="cv3s">Mighty Nineveh</span></figcaption></figure></li>
+        <li><figure><img src="/assets/img/civ-babylon-640.webp" srcset="/assets/img/civ-babylon-640.webp 640w, /assets/img/civ-babylon-1280.webp 1280w" sizes="(min-width: 900px) 360px, 78vw" width="640" height="360" loading="lazy" decoding="async" alt="Babylon"><figcaption><b data-i18n="cv4">Babylon</b> · <span data-i18n="cv4s">The great city on the Euphrates</span></figcaption></figure></li>
+    </ul>
+  </div>
+</section>
+
+<section class="g-sec">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="kTitle">Meet the great minds</h2><p data-i18n="kSub">Kings and queens, builders, writers and lawgivers. Tap them in the game to collect words from real ancient texts.</p></div>
+    <ul class="minds"><li><div class="who"><span class="ini" style="--c:#e8a51a">I</span><div><b>Imhotep</b><small data-i18n="m1d">fl. c. 2650 BC</small></div></div><span data-i18n="m1">Architect of the first pyramid, later honored as a great healer.</span></li><li><div class="who"><span class="ini" style="--c:#f08a3c">S</span><div><b>Sargon of Akkad</b><small data-i18n="m2d">c. 2334–2279 BC</small></div></div><span data-i18n="m2">Built one of the first empires in history.</span></li><li><div class="who"><span class="ini" style="--c:#3aa0d8">E</span><div><b>Enheduanna</b><small data-i18n="m3d">fl. c. 2300 BC</small></div></div><span data-i18n="m3">Priestess of Ur and the earliest author we know by name.</span></li><li><div class="who"><span class="ini" style="--c:#4a6fd1">H</span><div><b>Hammurabi</b><small data-i18n="m4d">c. 1792–1750 BC</small></div></div><span data-i18n="m4">Carved his famous laws in stone “so that the strong should not harm the weak.”</span></li><li><div class="who"><span class="ini" style="--c:#e8a51a">H</span><div><b>Hatshepsut</b><small data-i18n="m5d">c. 1479–1458 BC</small></div></div><span data-i18n="m5">A woman pharaoh who sent great trading ships to the land of Punt.</span></li><li><div class="who"><span class="ini" style="--c:#c8683a">T</span><div><b>Thutmose III</b><small data-i18n="m6d">1479–1425 BC</small></div></div><span data-i18n="m6">A general-pharaoh who won the Battle of Megiddo.</span></li><li><div class="who"><span class="ini" style="--c:#9a6a3e">R</span><div><b>Ramesses II</b><small data-i18n="m7d">1279–1213 BC</small></div></div><span data-i18n="m7">Fought at Kadesh, then made one of the oldest known peace treaties.</span></li><li><div class="who"><span class="ini" style="--c:#9b7bea">P</span><div><b>Puduhepa</b><small data-i18n="m8d">c. 1275–1245 BC</small></div></div><span data-i18n="m8">A Hittite queen and diplomat who helped keep that peace.</span></li></ul>
+  </div>
+</section>
+
+<section class="g-sec" style="padding-top:12px">
+  <div class="wrap">
+    <div class="g-head"><h2 data-i18n="tTitle">Treasures to find</h2><p data-i18n="tSub">Hidden in every age: real wonders from the museums of the world. (No coins yet: people paid in silver, weighed in shekels. Coins came much later!)</p></div>
+    <ul class="chipcloud treasures"><li data-i18n="tr0">Royal Game of Ur</li><li data-i18n="tr1">Standard of Ur</li><li data-i18n="tr2">Narmer Palette</li><li data-i18n="tr3">Code of Hammurabi</li><li data-i18n="tr4">Cylinder seals</li><li data-i18n="tr5">Clay tablets</li><li data-i18n="tr6">Queen Puabi’s crown</li><li data-i18n="tr7">Warka Vase</li><li data-i18n="tr8">Bust of Nefertiti</li><li data-i18n="tr9">Mask of Tutankhamun</li><li data-i18n="tr10">Lion Gate of Hattusa</li><li data-i18n="tr11">Copper ingots of Uluburun</li></ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 data-i18n="dCta">Be the first to play</h2>
+    <div class="stores" style="margin-top:18px"><a class="btn pink" href="mailto:support@mochimoose.com?subject=Dawn%20of%20Civilizations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><span data-i18n="dawnBtn">Tell me when it's ready</span></a></div>
+  </div>
+</section>
+</main>
+<footer class="foot"><div class="wrap">
+  <div>
+    <a class="brand" href="/" aria-label="Mochi Moose, home"><img src="/assets/img/moose.svg" alt="" width="52" height="48"><span>Mochi <b>Moose</b></span></a>
+    <p data-i18n="footTag">Tiny studio, big smiles. Cozy games for the whole family.</p>
+  </div>
+  <nav aria-label="Footer"><a href="/solitaire-bible-3d">Solitaire Bible 3D</a><a href="/dawn-of-civilizations">Dawn of Civilizations</a><a href="/support" data-i18n="navSupport">Support</a><a href="/privacy" data-i18n="footPriv">Privacy</a><a href="/terms" data-i18n="footTerms">Terms</a><a href="mailto:support@mochimoose.com">support@mochimoose.com</a></nav>
+  <div class="fine"><span>© 2026 Mochi Moose. <span data-i18n="rights">All rights reserved.</span></span><span>mochimoose.com</span></div>
+</div></footer>
+<script src="/assets/js/i18n-dawn.js?v=2" defer></script><script src="/assets/js/dawn-land.js?v=2" defer></script><script src="/assets/js/dawn-map.js?v=2" defer></script><script src="/assets/js/site.js?v=2" defer></script>
+</body>
+</html>
