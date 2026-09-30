@@ -120,7 +120,7 @@ def index():
         <div class="in">
           <h3><small data-i18n="tileSolitaire">Solitaire</small>Bible 3D</h3>
           <p data-i18n="tileSbTag">Win a hand of Klondike and watch a Bible story come alive, from Creation to Easter.</p>
-          <div class="plats"><span>Android</span><span>Fire</span><span>iPhone &amp; iPad</span></div>
+          <div class="plats"><span data-i18n="platPT">Phones &amp; tablets</span><span>Android</span><span data-i18n="platFire">Fire tablets</span><span>iPhone &amp; iPad</span></div>
           <span class="btn go"><span data-i18n="tileSbBtn">Explore the game</span> <span aria-hidden="true">→</span></span>
         </div>
       </a>
@@ -130,7 +130,7 @@ def index():
         <div class="in">
           <h3><small data-i18n="tileSolitaire">Solitaire</small>Dawn of Civilizations</h3>
           <p data-i18n="tileDawnTag">Win hands to build the first cities of the ancient world and watch empires rise across the map.</p>
-          <div class="plats"><span>Android</span><span>Fire</span><span>iPhone &amp; iPad</span></div>
+          <div class="plats"><span data-i18n="platPT">Phones &amp; tablets</span><span>Android</span><span data-i18n="platFire">Fire tablets</span><span>iPhone &amp; iPad</span></div>
           <span class="btn go"><span data-i18n="tileDawnBtn">Take a peek</span> <span aria-hidden="true">→</span></span>
         </div>
       </a>
@@ -208,6 +208,7 @@ def sb_page():
       <span class="sb-status"><i></i><span data-i18n="sbStatus">Launching October 2026</span></span>
       <p class="lead" data-i18n="sbLead">Win a hand of classic Klondike and watch the next moment of a Bible story come alive, from the first day of Creation to Easter morning.</p>
       <div class="stores">{store('sb.play', 'phone', 'Google Play')}{store('sb.amazon', 'tablet', 'Amazon Appstore')}{store('sb.apple', 'phone', 'iPhone &amp; iPad')}</div>
+      <p class="devices">{ICON['phone']}{ICON['tablet']}<span data-i18n="sbDevices">For phones and tablets: Android, Fire tablets, iPhone and iPad</span></p>
     </div>
   </div>
 </section>
@@ -278,6 +279,7 @@ def sb_page():
 <section class="cta-band">
   <div class="wrap">
     <h2 data-i18n="ctaTitle">Coming this October</h2>
+    <p class="devices dark">{ICON['phone']}{ICON['tablet']}<span data-i18n="sbDevices">For phones and tablets: Android, Fire tablets, iPhone and iPad</span></p>
     <div class="stores">{store('sb.play', 'phone', 'Google Play')}{store('sb.amazon', 'tablet', 'Amazon Appstore')}{store('sb.apple', 'phone', 'iPhone &amp; iPad')}</div>
     <div class="legal-links"><a href="/privacy" data-i18n="legalPriv">Privacy policy</a> · <a href="/terms" data-i18n="legalTerms">Terms of use</a> · <a href="/support" data-i18n="navSupport">Support</a></div>
   </div>
@@ -314,7 +316,7 @@ def dawn_page():
       <span class="badge" data-i18n="badge">Coming soon</span>
       <p class="lead" data-i18n="dLead">Our cozy little people travel back to the very beginning of history. Win hands of solitaire to build the first cities, and watch empires rise and fall across the ancient Middle East.</p>
       <a class="btn" href="mailto:{EMAIL}?subject=Dawn%20of%20Civilizations">{ICON['bell']}<span data-i18n="dawnBtn">Tell me when it's ready</span></a>
-      <p style="font:600 15px/1.3 var(--display);text-shadow:0 1px 8px rgba(0,0,0,.4)" data-i18n="dawnWhere">Coming to Android, Fire tablets, iPhone and iPad.</p>
+      <p class="devices">{ICON['phone']}{ICON['tablet']}<span data-i18n="dawnDevices">Coming to phones and tablets: Android, Fire tablets, iPhone and iPad</span></p>
     </div>
   </div>
 </section>

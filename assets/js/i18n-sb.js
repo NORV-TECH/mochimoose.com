@@ -1,5 +1,5 @@
 window.MM_EXTRA = {
-  es: {
+  es: { sbDevices: 'Para teléfonos y tabletas: Android, tabletas Fire, iPhone y iPad', 
     allGames: 'Todos los juegos', sbStatus: 'Llega en octubre de 2026',
     sbLead: 'Gana una mano de Klondike clásico y mira cómo cobra vida el siguiente momento de una historia bíblica, desde el primer día de la Creación hasta la mañana de Pascua.',
     howTitle: 'Juega una mano. Mira la historia.', howSub: 'El juego de cartas relajante que ya conoces, con todo un mundo esperándote detrás de las cartas.',
@@ -17,7 +17,7 @@ window.MM_EXTRA = {
     f1: 'Versículos narrados', f1d: 'Versículos bíblicos reales después de cada victoria, leídos en español, inglés y portugués.', f2: 'Música clásica', f2d: 'Bach, Handel, Haydn, Vivaldi y Pachelbel suenan mientras piensas.', f3: 'Día y noche', f3d: 'El cielo sigue tu propio reloj: de noche, tus partidas brillan bajo las estrellas.', f4: 'Gira y acerca', f4d: 'Aparta las cartas para girar, inclinar y acercarte a cada pequeño mundo.', f5: 'Klondike clásico', f5d: 'Robar 1 o 3, deshacer sin límite, pistas y partidas que siempre se pueden ganar.', f6: '¿Atascado? Sáltala', f6d: 'Usa maná o mira un video corto para pasar a una mano nueva.', f7: 'Vertical u horizontal', f7d: 'Cartas grandes y claras para teléfonos y tabletas, como las sostengas.', f8: '38 idiomas', f8d: 'Juega en tu idioma, del español y el portugués al suajili y el coreano.',
     ctaTitle: 'Llega este octubre'
   },
-  pt: {
+  pt: { sbDevices: 'Para celulares e tablets: Android, tablets Fire, iPhone e iPad', 
     allGames: 'Todos os jogos', sbStatus: 'Chega em outubro de 2026',
     sbLead: 'Vença uma mão de Klondike clássico e veja o próximo momento de uma história bíblica ganhar vida, do primeiro dia da Criação até a manhã da Páscoa.',
     howTitle: 'Jogue uma mão. Veja a história.', howSub: 'O jogo de cartas relaxante que você já conhece, com um mundo inteiro esperando por trás das cartas.',

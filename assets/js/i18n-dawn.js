@@ -1,5 +1,5 @@
 window.MM_EXTRA = {
-  es: {
+  es: { dawnDevices: 'Llegará a teléfonos y tabletas: Android, tabletas Fire, iPhone y iPad', 
     allGames: 'Todos los juegos',
     dLead: 'Nuestros personajitos viajan al comienzo mismo de la historia. Gana manos de solitario para construir las primeras ciudades y mira cómo los imperios surgen y caen en el antiguo Medio Oriente.',
     mTitle: 'Mira cómo cobra vida el mundo antiguo', mSub: 'Empieza con un mapa vacío. Aparecen aldeas, luego ciudades, luego reinos e imperios, a lo largo de más de 8000 años.', mDrag: 'Arrastra por el tiempo', lHit: 'Hititas',
@@ -13,7 +13,7 @@ window.MM_EXTRA = {
     tr0: 'El Juego Real de Ur', tr1: 'El Estandarte de Ur', tr2: 'La Paleta de Narmer', tr3: 'El Código de Hammurabi', tr4: 'Sellos cilíndricos', tr5: 'Tablillas de arcilla', tr6: 'La corona de la reina Puabi', tr7: 'El vaso de Warka', tr8: 'El busto de Nefertiti', tr9: 'La máscara de Tutankamón', tr10: 'La Puerta de los Leones de Hattusa', tr11: 'Los lingotes de cobre de Uluburun',
     dCta: 'Sé de los primeros en jugar'
   },
-  pt: {
+  pt: { dawnDevices: 'Chegando a celulares e tablets: Android, tablets Fire, iPhone e iPad', 
     allGames: 'Todos os jogos',
     dLead: 'Nossos personagens voltam ao comecinho da história. Vença mãos de paciência para construir as primeiras cidades e veja impérios surgirem e caírem no antigo Oriente Médio.',
     mTitle: 'Veja o mundo antigo ganhar vida', mSub: 'Comece com um mapa vazio. Surgem aldeias, depois cidades, depois reinos e impérios, ao longo de mais de 8.000 anos.', mDrag: 'Arraste pelo tempo', lHit: 'Hititas',
