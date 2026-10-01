@@ -6,7 +6,8 @@ M = f'<a href="mailto:{EMAIL}">{EMAIL}</a>'
 G1 = '<a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a>'
 GH = 'https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement'
 
-EFFECTIVE = {'en': 'Effective September 29, 2026', 'es': 'Vigente desde el 29 de septiembre de 2026', 'pt': 'Em vigor desde 29 de setembro de 2026'}
+EFFECTIVE = {'en': 'Effective October 1, 2026', 'es': 'Vigente desde el 1 de octubre de 2026', 'pt': 'Em vigor desde 1º de outubro de 2026'}
+TERMS_EFFECTIVE = {'en': 'Effective September 29, 2026', 'es': 'Vigente desde el 29 de septiembre de 2026', 'pt': 'Em vigor desde 29 de setembro de 2026'}
 
 PRIVACY = {
 'en': f'''<p class="meta">{EFFECTIVE['en']}</p>
@@ -14,6 +15,7 @@ PRIVACY = {
 <div class="short"><b>The short version</b><ul>
 <li>Our games have no accounts and never ask for your name, email, contacts, photos, camera, microphone or precise location.</li>
 <li>Your progress stays on your device. We don't run servers that collect it.</li>
+<li>Our games send anonymous crash reports and play statistics to Google Firebase so we can fix problems and make the games better. They are never used for advertising.</li>
 <li>The free versions show ads from Google AdMob, which may collect device identifiers to show and measure ads.</li>
 <li>We don't sell your personal information.</li>
 <li>You can delete everything at any time by resetting your progress or uninstalling the game.</li>
@@ -29,6 +31,15 @@ PRIVACY = {
 <li>diagnostic and crash information</li>
 </ul>
 <p>Ads in our games are limited to family-safe content. In the European Economic Area, the United Kingdom and Switzerland, the game asks for your consent through Google's consent form before personalized ads are shown, and you can change your choice at any time in the game under Settings → Ad privacy. On iPhone and iPad, personalized ads are shown only if you allow tracking when the app asks (Apple's App Tracking Transparency). On Android you can reset or delete your advertising ID in your device settings (Settings → Privacy → Ads, or Settings → Google → Ads on some devices). On Fire tablets you can turn off interest-based ads in the device's privacy settings. Learn how Google uses this information at {G1} and in <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+<h2>Crash reports and play statistics (Google Firebase)</h2>
+<p>Our games use two Google services, Firebase Crashlytics and Google Analytics for Firebase, to learn when a game crashes or hits an error and how the games are played (for example how many hands are started and won, how far players get in the story, and which collectibles are found). This tells us what to fix and what to improve. They may collect:</p>
+<ul>
+<li>a random ID for this installation of the game (not your name, and not your advertising ID)</li>
+<li>device and app information, such as model, operating system, language, screen orientation, app version and which store the game came from</li>
+<li>your approximate country or region, worked out from your IP address</li>
+<li>what happens in the game, such as hands played and story moments reached, and details of any crash or error</li>
+</ul>
+<p>We have switched off the collection of your advertising ID and ad personalization in Google Analytics: this information is used only to understand and improve the games, never for advertising. Learn more in <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase's privacy information</a> and <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a>.</p>
 <h2>Purchases</h2>
 <p>Purchases such as "Remove ads" are processed by Google Play, Amazon or Apple. We never see your payment details. The store only tells the game that a purchase is complete so it can unlock it, including after you reinstall.</p>
 <h2>Sharing pictures and gifts</h2>
@@ -36,13 +47,13 @@ PRIVACY = {
 <h2>Children</h2>
 <p>Our games are made for a general audience and are not directed at children under 13. We don't knowingly collect personal information from children. If you believe a child has given us personal information, contact us and we will help remove it.</p>
 <h2>Selling and sharing</h2>
-<p>We don't sell your personal information. Apart from Google's advertising services and the app stores described above, we don't share it with anyone. Under some U.S. state laws, such as California's, letting an ad network use device identifiers to personalize ads can count as "sharing". You can opt out of that at any time by turning off personalized ads on your device, as described above, or by writing to us.</p>
+<p>We don't sell your personal information. Apart from Google's advertising services, Google Firebase and the app stores described above, we don't share it with anyone. Under some U.S. state laws, such as California's, letting an ad network use device identifiers to personalize ads can count as "sharing". You can opt out of that at any time by turning off personalized ads on your device, as described above, or by writing to us.</p>
 <h2>Your choices and rights</h2>
 <p>Because our games keep your data on your device, you are in control: use Settings → Reset progress in the game, or uninstall the game, to delete it. For information collected by Google, use Google's controls linked above.</p>
 <p>Depending on where you live (for example the European Union, the United Kingdom, Brazil or California), you may have the right to access, correct or delete your personal information, to object to or limit how it is used, and to withdraw your consent. Write to us at {M} and we will help. You can also complain to your local data protection authority.</p>
-<p>In the European Union and the United Kingdom, the legal bases for this processing are your consent (for personalized ads), our legitimate interest in showing non-personalized ads, measuring them and preventing fraud, and the performance of a contract (for purchases).</p>
+<p>In the European Union and the United Kingdom, the legal bases for this processing are your consent (for personalized ads), our legitimate interest in showing non-personalized ads, measuring them and preventing fraud, and in finding crashes and improving the games, and the performance of a contract (for purchases).</p>
 <h2>How long data is kept</h2>
-<p>Data on your device stays there until you reset the game or uninstall it. Google keeps advertising data as described in its own policies.</p>
+<p>Data on your device stays there until you reset the game or uninstall it. Google keeps advertising data as described in its own policies. Firebase Crashlytics keeps crash reports for 90 days, and Google Analytics keeps play statistics for up to 14 months.</p>
 <h2>This website</h2>
 <p>mochimoose.com uses no cookies, no analytics and no trackers, and its fonts are served from the site itself. If you choose a language, your browser remembers that choice on your own device. The site is hosted by GitHub Pages, which may record visitors' IP addresses to keep the service secure and running (see the <a href="{GH}">GitHub Privacy Statement</a>). If you email us, we use your email address and message only to reply to you.</p>
 <h2>International users</h2>
@@ -57,6 +68,7 @@ PRIVACY = {
 <div class="short"><b>En resumen</b><ul>
 <li>Nuestros juegos no tienen cuentas y nunca piden tu nombre, correo, contactos, fotos, cámara, micrófono ni ubicación precisa.</li>
 <li>Tu progreso se queda en tu dispositivo. No tenemos servidores que lo recopilen.</li>
+<li>Nuestros juegos envían informes de fallos y estadísticas de juego anónimos a Google Firebase para que podamos corregir problemas y mejorar los juegos. Nunca se usan para publicidad.</li>
 <li>Las versiones gratuitas muestran anuncios de Google AdMob, que puede recopilar identificadores del dispositivo para mostrar y medir anuncios.</li>
 <li>No vendemos tu información personal.</li>
 <li>Puedes borrarlo todo cuando quieras reiniciando tu progreso o desinstalando el juego.</li>
@@ -72,6 +84,15 @@ PRIVACY = {
 <li>información de diagnóstico y de fallos</li>
 </ul>
 <p>Los anuncios de nuestros juegos se limitan a contenido apto para toda la familia. En el Espacio Económico Europeo, el Reino Unido y Suiza, el juego te pide consentimiento mediante el formulario de Google antes de mostrar anuncios personalizados, y puedes cambiar tu elección cuando quieras en el juego, en Ajustes → Privacidad de anuncios. En iPhone y iPad, los anuncios personalizados solo se muestran si permites el rastreo cuando la app lo pregunta (Transparencia de rastreo de apps de Apple). En Android puedes restablecer o eliminar tu ID de publicidad en los ajustes del dispositivo (Ajustes → Privacidad → Anuncios, o Ajustes → Google → Anuncios en algunos dispositivos). En las tabletas Fire puedes desactivar los anuncios basados en intereses en los ajustes de privacidad del dispositivo. Más información sobre cómo Google usa estos datos en {G1} y en la <a href="https://policies.google.com/privacy">Política de privacidad de Google</a>.</p>
+<h2>Informes de fallos y estadísticas de juego (Google Firebase)</h2>
+<p>Nuestros juegos usan dos servicios de Google, Firebase Crashlytics y Google Analytics para Firebase, para saber cuándo un juego falla o tiene un error y cómo se juega (por ejemplo cuántas manos se empiezan y se ganan, hasta dónde llegan los jugadores en la historia y qué coleccionables encuentran). Así sabemos qué corregir y qué mejorar. Pueden recopilar:</p>
+<ul>
+<li>un identificador aleatorio de esta instalación del juego (no tu nombre ni tu ID de publicidad)</li>
+<li>información del dispositivo y de la app, como el modelo, el sistema operativo, el idioma, la orientación de la pantalla, la versión de la app y la tienda de la que vino el juego</li>
+<li>tu país o región aproximados, calculados a partir de tu dirección IP</li>
+<li>lo que pasa en el juego, como las manos jugadas y los momentos de la historia alcanzados, y los detalles de cualquier fallo o error</li>
+</ul>
+<p>Hemos desactivado en Google Analytics la recopilación de tu ID de publicidad y la personalización de anuncios: esta información solo se usa para entender y mejorar los juegos, nunca para publicidad. Más información en la <a href="https://firebase.google.com/support/privacy" rel="noopener">información de privacidad de Firebase</a> y en la <a href="https://policies.google.com/privacy" rel="noopener">Política de privacidad de Google</a>.</p>
 <h2>Compras</h2>
 <p>Las compras como "Quitar anuncios" las procesan Google Play, Amazon o Apple. Nunca vemos tus datos de pago. La tienda solo le avisa al juego que la compra se completó para poder activarla, incluso si reinstalas el juego.</p>
 <h2>Compartir imágenes y regalos</h2>
@@ -79,13 +100,13 @@ PRIVACY = {
 <h2>Menores</h2>
 <p>Nuestros juegos están hechos para el público general y no están dirigidos a menores de 13 años. No recopilamos a sabiendas información personal de menores. Si crees que un menor nos dio información personal, escríbenos y te ayudaremos a eliminarla.</p>
 <h2>Venta y uso compartido</h2>
-<p>No vendemos tu información personal. Aparte de los servicios de publicidad de Google y de las tiendas de apps descritos arriba, no la compartimos con nadie. Según algunas leyes estatales de EE. UU., como la de California, permitir que una red de anuncios use identificadores del dispositivo para personalizar anuncios puede considerarse "compartir". Puedes oponerte en cualquier momento desactivando los anuncios personalizados en tu dispositivo, como se explica arriba, o escribiéndonos.</p>
+<p>No vendemos tu información personal. Aparte de los servicios de publicidad de Google, Google Firebase y las tiendas de apps descritos arriba, no la compartimos con nadie. Según algunas leyes estatales de EE. UU., como la de California, permitir que una red de anuncios use identificadores del dispositivo para personalizar anuncios puede considerarse "compartir". Puedes oponerte en cualquier momento desactivando los anuncios personalizados en tu dispositivo, como se explica arriba, o escribiéndonos.</p>
 <h2>Tus opciones y derechos</h2>
 <p>Como nuestros juegos guardan tus datos en tu dispositivo, tú tienes el control: usa Ajustes → Reiniciar progreso en el juego, o desinstálalo, para borrarlos. Para la información que recopila Google, usa los controles de Google indicados arriba.</p>
 <p>Según dónde vivas (por ejemplo la Unión Europea, el Reino Unido, Brasil o California), puedes tener derecho a acceder, corregir o eliminar tu información personal, a oponerte a su uso o limitarlo, y a retirar tu consentimiento. Escríbenos a {M} y te ayudaremos. También puedes presentar una queja ante la autoridad de protección de datos de tu país.</p>
-<p>En la Unión Europea y el Reino Unido, las bases legales de este tratamiento son tu consentimiento (para los anuncios personalizados), nuestro interés legítimo en mostrar anuncios no personalizados, medirlos y prevenir fraudes, y la ejecución de un contrato (para las compras).</p>
+<p>En la Unión Europea y el Reino Unido, las bases legales de este tratamiento son tu consentimiento (para los anuncios personalizados), nuestro interés legítimo en mostrar anuncios no personalizados, medirlos y prevenir fraudes, y en encontrar fallos y mejorar los juegos, y la ejecución de un contrato (para las compras).</p>
 <h2>Cuánto tiempo se guardan los datos</h2>
-<p>Los datos de tu dispositivo se quedan ahí hasta que reinicies el juego o lo desinstales. Google conserva los datos de publicidad según sus propias políticas.</p>
+<p>Los datos de tu dispositivo se quedan ahí hasta que reinicies el juego o lo desinstales. Google conserva los datos de publicidad según sus propias políticas. Firebase Crashlytics conserva los informes de fallos durante 90 días, y Google Analytics conserva las estadísticas de juego hasta 14 meses.</p>
 <h2>Este sitio web</h2>
 <p>mochimoose.com no usa cookies, ni analítica, ni rastreadores, y sus fuentes se sirven desde el propio sitio. Si eliges un idioma, tu navegador recuerda esa elección en tu propio dispositivo. El sitio está alojado en GitHub Pages, que puede registrar las direcciones IP de los visitantes para mantener el servicio seguro y funcionando (consulta la <a href="{GH}">Declaración de privacidad de GitHub</a>). Si nos escribes, usamos tu correo y tu mensaje solo para responderte.</p>
 <h2>Usuarios internacionales</h2>
@@ -100,6 +121,7 @@ PRIVACY = {
 <div class="short"><b>Resumindo</b><ul>
 <li>Nossos jogos não têm contas e nunca pedem seu nome, e-mail, contatos, fotos, câmera, microfone nem localização precisa.</li>
 <li>Seu progresso fica no seu aparelho. Não temos servidores que o coletem.</li>
+<li>Nossos jogos enviam relatórios de falhas e estatísticas de jogo anônimos ao Google Firebase para podermos corrigir problemas e melhorar os jogos. Eles nunca são usados para publicidade.</li>
 <li>As versões gratuitas exibem anúncios do Google AdMob, que pode coletar identificadores do aparelho para exibir e medir anúncios.</li>
 <li>Não vendemos suas informações pessoais.</li>
 <li>Você pode apagar tudo quando quiser reiniciando seu progresso ou desinstalando o jogo.</li>
@@ -115,6 +137,15 @@ PRIVACY = {
 <li>informações de diagnóstico e de falhas</li>
 </ul>
 <p>Os anúncios dos nossos jogos são limitados a conteúdo adequado para toda a família. No Espaço Econômico Europeu, no Reino Unido e na Suíça, o jogo pede seu consentimento pelo formulário do Google antes de exibir anúncios personalizados, e você pode mudar sua escolha a qualquer momento no jogo, em Ajustes → Privacidade dos anúncios. No iPhone e no iPad, anúncios personalizados só são exibidos se você permitir o rastreamento quando o app perguntar (Transparência de Rastreamento de Apps da Apple). No Android, você pode redefinir ou excluir seu ID de publicidade nas configurações do aparelho (Configurações → Privacidade → Anúncios, ou Configurações → Google → Anúncios em alguns aparelhos). Nos tablets Fire, você pode desativar os anúncios baseados em interesses nas configurações de privacidade do aparelho. Saiba como o Google usa essas informações em {G1} e na <a href="https://policies.google.com/privacy">Política de Privacidade do Google</a>.</p>
+<h2>Relatórios de falhas e estatísticas de jogo (Google Firebase)</h2>
+<p>Nossos jogos usam dois serviços do Google, o Firebase Crashlytics e o Google Analytics para Firebase, para saber quando um jogo trava ou tem um erro e como os jogos são jogados (por exemplo quantas mãos são iniciadas e vencidas, até onde os jogadores chegam na história e quais colecionáveis encontram). Assim sabemos o que corrigir e o que melhorar. Eles podem coletar:</p>
+<ul>
+<li>um identificador aleatório desta instalação do jogo (não o seu nome nem o seu ID de publicidade)</li>
+<li>informações do aparelho e do app, como modelo, sistema operacional, idioma, orientação da tela, versão do app e a loja de onde o jogo veio</li>
+<li>seu país ou região aproximados, calculados a partir do seu endereço IP</li>
+<li>o que acontece no jogo, como mãos jogadas e momentos da história alcançados, e os detalhes de qualquer falha ou erro</li>
+</ul>
+<p>Desativamos no Google Analytics a coleta do seu ID de publicidade e a personalização de anúncios: essas informações são usadas apenas para entender e melhorar os jogos, nunca para publicidade. Saiba mais nas <a href="https://firebase.google.com/support/privacy" rel="noopener">informações de privacidade do Firebase</a> e na <a href="https://policies.google.com/privacy" rel="noopener">Política de Privacidade do Google</a>.</p>
 <h2>Compras</h2>
 <p>Compras como "Remover anúncios" são processadas pelo Google Play, pela Amazon ou pela Apple. Nunca vemos seus dados de pagamento. A loja apenas informa ao jogo que a compra foi concluída para liberá-la, inclusive se você reinstalar o jogo.</p>
 <h2>Compartilhar imagens e presentes</h2>
@@ -122,13 +153,13 @@ PRIVACY = {
 <h2>Crianças</h2>
 <p>Nossos jogos são feitos para o público em geral e não são direcionados a menores de 13 anos. Não coletamos intencionalmente informações pessoais de crianças. Se você acredita que uma criança nos forneceu informações pessoais, fale conosco e ajudaremos a removê-las.</p>
 <h2>Venda e compartilhamento</h2>
-<p>Não vendemos suas informações pessoais. Além dos serviços de publicidade do Google e das lojas de apps descritos acima, não as compartilhamos com ninguém. Segundo algumas leis estaduais dos EUA, como a da Califórnia, permitir que uma rede de anúncios use identificadores do aparelho para personalizar anúncios pode ser considerado "compartilhamento". Você pode recusar isso a qualquer momento desativando os anúncios personalizados no seu aparelho, como explicado acima, ou escrevendo para nós.</p>
+<p>Não vendemos suas informações pessoais. Além dos serviços de publicidade do Google, do Google Firebase e das lojas de apps descritos acima, não as compartilhamos com ninguém. Segundo algumas leis estaduais dos EUA, como a da Califórnia, permitir que uma rede de anúncios use identificadores do aparelho para personalizar anúncios pode ser considerado "compartilhamento". Você pode recusar isso a qualquer momento desativando os anúncios personalizados no seu aparelho, como explicado acima, ou escrevendo para nós.</p>
 <h2>Suas escolhas e direitos</h2>
 <p>Como nossos jogos guardam seus dados no seu aparelho, você está no controle: use Ajustes → Reiniciar progresso no jogo, ou desinstale o jogo, para apagá-los. Para as informações coletadas pelo Google, use os controles do Google indicados acima.</p>
 <p>Dependendo de onde você mora (por exemplo União Europeia, Reino Unido, Brasil ou Califórnia), você pode ter o direito de acessar, corrigir ou excluir suas informações pessoais, de se opor ao uso delas ou limitá-lo e de retirar seu consentimento. Escreva para {M} e vamos ajudar. Você também pode reclamar à autoridade de proteção de dados do seu país (no Brasil, a ANPD).</p>
-<p>Na União Europeia e no Reino Unido, as bases legais deste tratamento são o seu consentimento (para anúncios personalizados), nosso legítimo interesse em exibir anúncios não personalizados, medi-los e evitar fraudes, e a execução de um contrato (para as compras).</p>
+<p>Na União Europeia e no Reino Unido, as bases legais deste tratamento são o seu consentimento (para anúncios personalizados), nosso legítimo interesse em exibir anúncios não personalizados, medi-los e evitar fraudes, e em encontrar falhas e melhorar os jogos, e a execução de um contrato (para as compras).</p>
 <h2>Por quanto tempo os dados são guardados</h2>
-<p>Os dados no seu aparelho ficam lá até você reiniciar o jogo ou desinstalá-lo. O Google guarda os dados de publicidade conforme suas próprias políticas.</p>
+<p>Os dados no seu aparelho ficam lá até você reiniciar o jogo ou desinstalá-lo. O Google guarda os dados de publicidade conforme suas próprias políticas. O Firebase Crashlytics guarda os relatórios de falhas por 90 dias, e o Google Analytics guarda as estatísticas de jogo por até 14 meses.</p>
 <h2>Este site</h2>
 <p>O mochimoose.com não usa cookies, nem ferramentas de análise, nem rastreadores, e suas fontes são servidas pelo próprio site. Se você escolher um idioma, seu navegador lembra essa escolha no seu próprio aparelho. O site é hospedado no GitHub Pages, que pode registrar os endereços IP dos visitantes para manter o serviço seguro e funcionando (veja a <a href="{GH}">Declaração de Privacidade do GitHub</a>). Se você nos enviar um e-mail, usamos seu endereço e sua mensagem apenas para responder.</p>
 <h2>Usuários internacionais</h2>
@@ -140,7 +171,7 @@ PRIVACY = {
 }
 
 TERMS = {
-'en': f'''<p class="meta">{EFFECTIVE['en']}</p>
+'en': f'''<p class="meta">{TERMS_EFFECTIVE['en']}</p>
 <p>These terms apply to the games published by Mochi Moose ("we", "us"), including Solitaire Bible 3D, on phones and tablets, including the versions on Google Play, the Amazon Appstore and the Apple App Store. By downloading or playing a game you agree to them. If you don't agree, please don't use the game. Questions: {M}.</p>
 <h2>Using the games</h2>
 <p>We give you a personal, non-exclusive, non-transferable license to install and play our games on devices you own or control, for your own non-commercial use. You may not copy, sell, rent or redistribute a game, remove its notices, reverse engineer it (except where the law allows it), or use it in a way that breaks the law or harms the game or other people.</p>
@@ -168,7 +199,7 @@ TERMS = {
 <h2>Contact</h2>
 <p>Mochi Moose · {M}</p>''',
 
-'es': f'''<p class="meta">{EFFECTIVE['es']}</p>
+'es': f'''<p class="meta">{TERMS_EFFECTIVE['es']}</p>
 <p>Estos términos se aplican a los juegos publicados por Mochi Moose ("nosotros"), incluido Solitaire Bible 3D, en teléfonos y tabletas, incluidas las versiones de Google Play, la Amazon Appstore y la App Store de Apple. Al descargar o jugar un juego, los aceptas. Si no estás de acuerdo, por favor no uses el juego. Preguntas: {M}.</p>
 <h2>Uso de los juegos</h2>
 <p>Te damos una licencia personal, no exclusiva e intransferible para instalar y jugar nuestros juegos en los dispositivos que te pertenecen o que controlas, para tu uso personal y no comercial. No puedes copiar, vender, alquilar ni redistribuir un juego, quitar sus avisos, hacerle ingeniería inversa (salvo donde la ley lo permita) ni usarlo de forma que infrinja la ley o dañe el juego o a otras personas.</p>
@@ -196,7 +227,7 @@ TERMS = {
 <h2>Contacto</h2>
 <p>Mochi Moose · {M}</p>''',
 
-'pt': f'''<p class="meta">{EFFECTIVE['pt']}</p>
+'pt': f'''<p class="meta">{TERMS_EFFECTIVE['pt']}</p>
 <p>Estes termos se aplicam aos jogos publicados pela Mochi Moose ("nós"), incluindo o Solitaire Bible 3D, em celulares e tablets, incluindo as versões do Google Play, da Amazon Appstore e da App Store da Apple. Ao baixar ou jogar um jogo, você concorda com eles. Se não concordar, por favor não use o jogo. Dúvidas: {M}.</p>
 <h2>Uso dos jogos</h2>
 <p>Damos a você uma licença pessoal, não exclusiva e intransferível para instalar e jogar nossos jogos nos aparelhos que são seus ou que você controla, para uso pessoal e não comercial. Você não pode copiar, vender, alugar ou redistribuir um jogo, remover seus avisos, fazer engenharia reversa (exceto onde a lei permitir) nem usá-lo de forma que viole a lei ou prejudique o jogo ou outras pessoas.</p>
